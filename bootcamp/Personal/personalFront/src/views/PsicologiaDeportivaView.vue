@@ -2,6 +2,6 @@
 
 <template>
   <main>
-    <h1>Login</h1>
+    <h1>Psicología deportiva</h1>
   </main>
 </template>

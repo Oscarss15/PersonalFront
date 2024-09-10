@@ -2,6 +2,6 @@
 
 <template>
   <main>
-    <h1>Login</h1>
+    <h1>Tecnica</h1>
   </main>
 </template>

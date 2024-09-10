@@ -1,309 +1,170 @@
-<script setup></script>
-<template>
-  <nav>
-    <div class="wrapper">
-      <div class="logo"><a href="#">Logo</a></div>
-      <input type="radio" name="slider" id="menu-btn" />
-      <input type="radio" name="slider" id="close-btn" />
-      <ul class="nav-links">
-        <label for="close-btn" class="btn close-btn"
-          ><i class="fas fa-times"></i
-        ></label>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li>
-          <a href="#" class="desktop-item">Dropdown Menu</a>
-          <input type="checkbox" id="showDrop" />
-          <label for="showDrop" class="mobile-item">Dropdown Menu</label>
-          <ul class="drop-menu">
-            <li><a href="#">Drop menu 1</a></li>
-            <li><a href="#">Drop menu 2</a></li>
-            <li><a href="#">Drop menu 3</a></li>
-            <li><a href="#">Drop menu 4</a></li>
-          </ul>
-        </li>
+<script setup>
+import { ref } from "vue";
 
-        <li><a href="#">Feedback</a></li>
-      </ul>
-      <label for="menu-btn" class="btn menu-btn"
-        ><i class="fas fa-bars"></i
-      ></label>
+const checkbox = ref(null);
+
+function closeMenu() {
+  if (checkbox.value) {
+    checkbox.value.checked = false;
+  }
+}
+</script>
+
+<template>
+  <div id="menu">
+    <div id="containerLogo">
+      <img id="logo" src="../assets/img/navbar/padelLogo.png" alt="" />
+      <div id="TitleNav"><label>Padel Match</label></div>
     </div>
-  </nav>
+  </div>
+
+  <input type="checkbox" id="active" ref="checkbox" />
+  <label for="active" class="menu-btn">
+    <img id="ballNav" src="../assets/img/navbar/pelotaNav.png" alt="" />
+  </label>
+
+  <div class="wrapper">
+    <ul>
+      <RouterLink to="/" class="routerlink"
+        ><li @click="closeMenu">Home</li></RouterLink
+      >
+      <RouterLink to="/tecnica" class="routerlink"
+        ><li @click="closeMenu">Técnica</li></RouterLink
+      >
+      <RouterLink to="/psicologia" class="routerlink"
+        ><li @click="closeMenu">Psicología</li></RouterLink
+      >
+      <RouterLink to="/salas" class="routerlink"
+        ><li @click="closeMenu">Salas</li></RouterLink
+      >
+      <RouterLink to="/foro" class="routerlink"
+        ><li @click="closeMenu">Foro</li></RouterLink
+      >
+    </ul>
+  </div>
 </template>
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+#menu {
+  width: 100%;
+  background-color: #2d3b57;
+  height: 120px;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-family: "Oswald", sans-serif;
 }
-nav {
+.routerlink {
+  text-decoration: none;
+}
+.wrapper {
   position: fixed;
-  z-index: 99;
-  width: 100%;
-
-  background: #2d3b57;
-}
-nav .wrapper {
-  position: relative;
-  max-width: 1300px;
-  padding: 0px 30px;
-  height: 70px;
-  line-height: 70px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.wrapper .logo a {
-  color: #b0fc33;
-  font-size: 30px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.wrapper .nav-links {
-  display: inline-flex;
-}
-.nav-links li {
-  list-style: none;
-}
-.nav-links li a {
-  color: #b0fc33;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 9px 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-.nav-links li a:hover {
-  background: #b0fc33;
-  color: #2d3b57;
-}
-.nav-links .mobile-item {
-  display: none;
-}
-.nav-links .drop-menu {
-  position: absolute;
-  background: #242526;
-  width: 180px;
-  line-height: 45px;
-  top: 85px;
-  opacity: 0;
-  visibility: hidden;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-.nav-links li:hover .drop-menu,
-.nav-links li:hover .mega-box {
-  transition: all 0.3s ease;
-  top: 70px;
-  opacity: 1;
-  visibility: visible;
-}
-.drop-menu li a {
-  width: 100%;
-  display: block;
-  padding: 0 0 0 15px;
-  font-weight: 400;
-  border-radius: 0px;
-}
-.mega-box {
-  position: absolute;
+  top: 0;
   left: 0;
-  width: 100%;
-  padding: 0 30px;
-  top: 85px;
-  opacity: 0;
-  visibility: hidden;
-}
-.mega-box .content {
-  background: #242526;
-  padding: 25px 20px;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-.mega-box .content .row {
-  width: calc(25% - 30px);
-  line-height: 45px;
-}
-.content .row img {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: 100%;
+  background: #2d3b57;
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 0.3s ease-in-out;
 }
-.content .row header {
-  color: #f2f2f2;
-  font-size: 20px;
-  font-weight: 500;
+#active:checked ~ .wrapper {
+  clip-path: circle(75%);
 }
-.content .row .mega-links {
-  margin-left: -40px;
-  border-left: 1px solid rgba(255, 255, 255, 0.09);
-}
-.row .mega-links li {
-  padding: 0 20px;
-}
-.row .mega-links li a {
-  padding: 0px;
-  padding: 0 20px;
-  color: #d9d9d9;
-  font-size: 17px;
-  display: block;
-}
-.row .mega-links li a:hover {
-  color: #f2f2f2;
-}
-.wrapper .btn {
-  color: #fff;
+.menu-btn {
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  top: 30px;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
-  display: none;
+  animation: girar 4s linear infinite;
+  transition: all 0.3s ease-in-out;
 }
-.wrapper .btn.close-btn {
-  position: absolute;
-  right: 30px;
-  top: 10px;
+.menu-btn:hover {
+  box-shadow: 0 3px 10px #b0fc33;
+  animation: girar 4s linear infinite;
 }
-
-@media screen and (max-width: 970px) {
-  .wrapper .btn {
-    display: block;
-  }
-  .wrapper .nav-links {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    max-width: 350px;
-    top: 0;
-    left: -100%;
-    background: #242526;
-    display: block;
-    padding: 50px 10px;
-    line-height: 50px;
-    overflow-y: auto;
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.18);
-    transition: all 0.3s ease;
-  }
-  /* custom scroll bar */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #242526;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #3a3b3c;
-  }
-  #menu-btn:checked ~ .nav-links {
-    left: 0%;
-  }
-  #menu-btn:checked ~ .btn.menu-btn {
-    display: none;
-  }
-  #close-btn:checked ~ .btn.menu-btn {
-    display: block;
-  }
-  .nav-links li {
-    margin: 15px 10px;
-  }
-  .nav-links li a {
-    padding: 0 20px;
-    display: block;
-    font-size: 20px;
-  }
-  .nav-links .drop-menu {
-    position: static;
-    opacity: 1;
-    top: 65px;
-    visibility: visible;
-    padding-left: 20px;
-    width: 100%;
-    max-height: 0px;
-    overflow: hidden;
-    box-shadow: none;
-    transition: all 0.3s ease;
-  }
-  #showDrop:checked ~ .drop-menu,
-  #showMega:checked ~ .mega-box {
-    max-height: 100%;
-  }
-  .nav-links .desktop-item {
-    display: none;
-  }
-  .nav-links .mobile-item {
-    display: block;
-    color: #f2f2f2;
-    font-size: 20px;
-    font-weight: 500;
-    padding-left: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  .nav-links .mobile-item:hover {
-    background: #3a3b3c;
-  }
-  .drop-menu li {
-    margin: 0;
-  }
-  .drop-menu li a {
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  .mega-box {
-    position: static;
-    top: 65px;
-    opacity: 1;
-    visibility: visible;
-    padding: 0 20px;
-    max-height: 0px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  .mega-box .content {
-    box-shadow: none;
-    flex-direction: column;
-    padding: 20px 20px 0 20px;
-  }
-  .mega-box .content .row {
-    width: 100%;
-    margin-bottom: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .mega-box .content .row:nth-child(1),
-  .mega-box .content .row:nth-child(2) {
-    border-top: 0px;
-  }
-  .content .row .mega-links {
-    border-left: 0px;
-    padding-left: 15px;
-  }
-  .row .mega-links li {
-    margin: 0;
-  }
-  .content .row header {
-    font-size: 19px;
-  }
+#ballNav {
+  height: 60px;
+  width: 60px;
 }
-nav input {
-  display: none;
+#containerLogo {
+  width: 95%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.body-text {
+#logo {
+  height: 70px;
+  width: 70px;
+}
+#TitleNav {
+  width: 100%;
+  color: #b0fc33;
+  height: 120px;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#active:checked ~ .menu-btn {
+  color: #b0fc33;
+}
+#active:checked ~ .menu-btn i:before {
+  content: "\f00d";
+}
+.wrapper ul {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  list-style: none;
   text-align: center;
-  padding: 0 30px;
 }
-.body-text div {
-  font-size: 45px;
-  font-weight: 600;
+.wrapper ul li {
+  margin: 15px 0;
+  width: 500px;
+  background-color: #2d3b57;
+  cursor: pointer;
+  font-size: 40px;
+  transition: all 0.5s ease;
+  text-decoration: none;
+  color: #b0fc33;
+}
+
+.wrapper ul li:hover {
+  background-color: #b0fc33;
+  border-radius: 20px;
+  width: 100%;
+  color: #2d3b57;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+@keyframes rotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
