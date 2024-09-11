@@ -29,6 +29,11 @@ const router = createRouter({
       name: "foro",
       component: () => import("../views/ForoView.vue"),
     },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../views/LoginView.vue"),
+    },
   ],
 });
 

@@ -16,6 +16,6 @@ import Footer from "./components/Footer.vue";
 
 <style scoped>
 main {
-  height: 318px;
+  height: auto;
 }
 </style>
