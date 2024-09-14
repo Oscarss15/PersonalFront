@@ -1,7 +1,20 @@
 <script setup>
 import TItuloTecnica from "@/components/TItuloTecnica.vue";
+import ArticulosTecnica from "@/components/ArticulosTecnica.vue";
 </script>
 
 <template>
-  <main></main>
+  <main>
+    <TItuloTecnica></TItuloTecnica>
+    <ArticulosTecnica></ArticulosTecnica>
+  </main>
 </template>
+<style scoped>
+main {
+  min-height: 657px;
+  background: url("../assets/img/login/fondo.png") no-repeat center center;
+  background-size: cover;
+  object-fit: cover;
+  background-attachment: fixed;
+}
+</style>

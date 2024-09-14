@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <div id="space"></div>
-  <div id="containerTitulo">Tecnica</div>
+  <div id="containerTitulo">Psicologia</div>
   <div id="space"></div>
 </template>
 <style scoped>
