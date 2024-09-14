@@ -143,6 +143,7 @@ h6 span {
   margin: 10px auto;
   cursor: pointer;
   background-color: #2d3b57;
+  z-index: 0;
 }
 
 .checkbox:checked + label:before,
@@ -178,7 +179,6 @@ h6 span {
   transform-style: preserve-3d;
   perspective: 800px;
   margin-top: 40px;
-  /*  z-index: 1; */
 }
 
 .card-3d-wrapper {

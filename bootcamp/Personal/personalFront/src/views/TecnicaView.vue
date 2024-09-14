@@ -1,7 +1,7 @@
-<script setup></script>
+<script setup>
+import TItuloTecnica from "@/components/TItuloTecnica.vue";
+</script>
 
 <template>
-  <main>
-    <h1>Tecnica</h1>
-  </main>
+  <main></main>
 </template>

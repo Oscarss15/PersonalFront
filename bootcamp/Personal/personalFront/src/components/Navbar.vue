@@ -60,7 +60,7 @@ function closeMenu() {
   text-decoration: none;
 }
 .wrapper {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -68,13 +68,14 @@ function closeMenu() {
   background: #2d3b57;
   clip-path: circle(25px at calc(100% - 45px) 45px);
   transition: all 0.3s ease-in-out;
+  z-index: 1000;
 }
 #active:checked ~ .wrapper {
   clip-path: circle(75%);
 }
 .menu-btn {
   position: absolute;
-  z-index: 2;
+  z-index: 1001;
   right: 20px;
   top: 30px;
   height: 60px;

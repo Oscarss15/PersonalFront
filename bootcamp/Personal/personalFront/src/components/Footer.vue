@@ -52,6 +52,7 @@
 <style scoped>
 footer {
   box-shadow: 0 -10px 15px #b0fc33;
+  z-index: 1005;
 }
 
 button {
