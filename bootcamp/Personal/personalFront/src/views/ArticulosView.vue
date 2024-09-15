@@ -1,12 +1,12 @@
 <script setup>
-import TituloTecnica from "@/components/TituloTecnica.vue";
-import ArticulosTecnica from "@/components/ArticulosTecnica.vue";
+import TituloArticulo from "@/components/TituloArticulo.vue";
+import CuerpoArticulo from "@/components/CuerpoArticulo.vue";
 </script>
 
 <template>
   <main>
-    <TituloTecnica></TituloTecnica>
-    <ArticulosTecnica></ArticulosTecnica>
+    <TituloArticulo></TituloArticulo>
+    <CuerpoArticulo></CuerpoArticulo>
   </main>
 </template>
 <style scoped>

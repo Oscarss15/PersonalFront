@@ -1,18 +1,20 @@
 <script setup></script>
 <template>
   <main>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgPsicologia"
-          src="../assets/img/psicologia/psicologia1.jpg"
-          alt="Imagen psicologia 1"
-        />
-        <div class="overlay">
-          <p>Titulo 1</p>
+    <RouterLink to="/articulos"
+      ><div class="containerArticulo">
+        <div class="imageWrapper">
+          <img
+            class="imgPsicologia"
+            src="../assets/img/psicologia/psicologia1.jpg"
+            alt="Imagen psicologia 1"
+          />
+          <div class="overlay">
+            <p>Titulo 1</p>
+          </div>
         </div>
       </div>
-    </div>
+    </RouterLink>
     <div class="containerArticulo">
       <div class="imageWrapper">
         <img
