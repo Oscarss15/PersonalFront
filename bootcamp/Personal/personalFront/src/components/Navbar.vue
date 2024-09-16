@@ -40,6 +40,9 @@ function closeMenu() {
       <RouterLink to="/foro" class="routerlink"
         ><li @click="closeMenu">Foro</li></RouterLink
       >
+      <RouterLink to="/adminArticulos" class="routerlink"
+        ><li @click="closeMenu">Admin</li></RouterLink
+      >
     </ul>
   </div>
 </template>
@@ -56,6 +59,7 @@ function closeMenu() {
   font-family: "Lato", sans-serif;
   font-family: "Oswald", sans-serif;
 }
+
 .routerlink {
   text-decoration: none;
 }
