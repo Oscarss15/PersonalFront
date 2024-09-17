@@ -155,7 +155,7 @@ function closeMenu() {
 input[type="checkbox"] {
   display: none;
 }
-/* Asegurar que el cursor personalizado se muestre al pasar sobre links y elementos interactivos */
+
 .wrapper ul li,
 .wrapper ul li:hover,
 .wrapper ul li a,
