@@ -14,7 +14,7 @@ function closeMenu() {
   <div id="menu">
     <div id="containerLogo">
       <img id="logo" src="../assets/img/navbar/padelLogo.png" alt="" />
-      <div id="TitleNav"><label>Padel Match</label></div>
+      <div id="TitleNav"><label></label></div>
     </div>
   </div>
 
@@ -155,7 +155,13 @@ function closeMenu() {
 input[type="checkbox"] {
   display: none;
 }
-
+/* Asegurar que el cursor personalizado se muestre al pasar sobre links y elementos interactivos */
+.wrapper ul li,
+.wrapper ul li:hover,
+.wrapper ul li a,
+.wrapper ul li a:hover {
+  cursor: url("../assets/img/cursor/cursorPadel.cur"), pointer;
+}
 @keyframes rotate {
   0% {
     filter: hue-rotate(0deg);

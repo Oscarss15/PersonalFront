@@ -52,7 +52,6 @@
 <style scoped>
 footer {
   box-shadow: 0 -10px 15px #b0fc33;
-  z-index: 1005;
 }
 
 button {
@@ -102,6 +101,10 @@ button:hover i {
   color: #b0fc33;
 }
 
+button,
+button:hover {
+  cursor: url("../assets/img/cursor/cursorPadel.cur"), pointer;
+}
 @media (max-width: 600px) {
   button {
     width: 60px;
