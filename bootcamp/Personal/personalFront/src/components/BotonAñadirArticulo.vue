@@ -250,6 +250,7 @@ const onFileChange = (e, imagenKey) => {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1050;
 }
 
 .modal-content {
@@ -260,6 +261,7 @@ const onFileChange = (e, imagenKey) => {
   max-width: 90%;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1060;
 }
 
 .modal-content h2 {

@@ -18,198 +18,200 @@ const closeModal = () => {
 </script>
 
 <template>
-  <table class="table table-striped custom-table-dark">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Título</th>
-        <th scope="col">Autor</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Texto 1</th>
-        <th scope="col">Texto 2</th>
-        <th scope="col">Texto 3</th>
-        <th scope="col">Imagen 1</th>
-        <th scope="col">Imagen 2</th>
-        <th scope="col">Imagen 3</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Título 1</td>
-        <td>Autor 1</td>
-        <td>Descripción 1</td>
-        <td>10-12-2024</td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>imagen1.png</td>
-        <td>imagen2.png</td>
-        <td>imagen3.png</td>
-        <td>
-          <img
-            class="img"
-            src="../assets/img/admin/editarArticulo.png"
-            alt="Editar"
-          />
-        </td>
-        <td>
-          <img
-            class="img"
-            src="../assets/img/admin/eliminarArticulo.png"
-            alt="Eliminar"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>Título 1</td>
-        <td>Autor 1</td>
-        <td>Descripción 1</td>
-        <td>10-12-2024</td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>imagen1.png</td>
-        <td>imagen2.png</td>
-        <td>imagen3.png</td>
-        <td>
-          <img
-            class="img"
-            src="../assets/img/admin/editarArticulo.png"
-            alt="Editar"
-          />
-        </td>
-        <td>
-          <img
-            class="img"
-            src="../assets/img/admin/eliminarArticulo.png"
-            alt="Eliminar"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>Título 1</td>
-        <td>Autor 1</td>
-        <td>Descripción 1</td>
-        <td>10-12-2024</td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>
-          <span
-            class="ver-info"
-            @click="
-              openModal(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-              )
-            "
-            >+Info</span
-          >
-        </td>
-        <td>imagen1.png</td>
-        <td>imagen2.png</td>
-        <td>imagen3.png</td>
-        <td>
-          <img
-            class="img"
-            src="../assets/img/admin/editarArticulo.png"
-            alt="Editar"
-          />
-        </td>
-        <td>
-          <img
-            class="img"
-            src="../assets/img/admin/eliminarArticulo.png"
-            alt="Eliminar"
-          />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-striped custom-table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Título</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Texto 1</th>
+          <th scope="col">Texto 2</th>
+          <th scope="col">Texto 3</th>
+          <th scope="col">Imagen 1</th>
+          <th scope="col">Imagen 2</th>
+          <th scope="col">Imagen 3</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Título 1</td>
+          <td>Autor 1</td>
+          <td>Descripción 1</td>
+          <td>10-12-2024</td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>imagen1.png</td>
+          <td>imagen2.png</td>
+          <td>imagen3.png</td>
+          <td>
+            <img
+              class="img"
+              src="../assets/img/admin/editarArticulo.png"
+              alt="Editar"
+            />
+          </td>
+          <td>
+            <img
+              class="img"
+              src="../assets/img/admin/eliminarArticulo.png"
+              alt="Eliminar"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td>Título 1</td>
+          <td>Autor 1</td>
+          <td>Descripción 1</td>
+          <td>10-12-2024</td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>imagen1.png</td>
+          <td>imagen2.png</td>
+          <td>imagen3.png</td>
+          <td>
+            <img
+              class="img"
+              src="../assets/img/admin/editarArticulo.png"
+              alt="Editar"
+            />
+          </td>
+          <td>
+            <img
+              class="img"
+              src="../assets/img/admin/eliminarArticulo.png"
+              alt="Eliminar"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td>Título 1</td>
+          <td>Autor 1</td>
+          <td>Descripción 1</td>
+          <td>10-12-2024</td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>
+            <span
+              class="ver-info"
+              @click="
+                openModal(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
+                )
+              "
+              >+Info</span
+            >
+          </td>
+          <td>imagen1.png</td>
+          <td>imagen2.png</td>
+          <td>imagen3.png</td>
+          <td>
+            <img
+              class="img"
+              src="../assets/img/admin/editarArticulo.png"
+              alt="Editar"
+            />
+          </td>
+          <td>
+            <img
+              class="img"
+              src="../assets/img/admin/eliminarArticulo.png"
+              alt="Eliminar"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
     <div class="modal-content">
@@ -223,23 +225,45 @@ const closeModal = () => {
 </template>
 
 <style scoped>
-table {
-  width: 85%;
+.table-responsive {
+  width: 90%;
   box-shadow: 0 0 20px #2d3b57;
   border-radius: 10px;
-  overflow: hidden;
-  transition: transform 1.5s ease;
+  overflow-x: auto; /* Habilitar el scroll horizontal si es necesario */
+  box-sizing: border-box; /* Incluye el padding y border en el width total */
 }
-table:hover {
-  transform: scale(1.1);
-  transition: 1.5s;
-  box-shadow: 0 0 30px #2d3b57;
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Elimina espacios entre celdas */
+  box-sizing: border-box;
+}
+
+table th,
+table td {
+  padding: 8px; /* Ajustar el padding si es necesario */
+  border: 1px solid #454d66; /* Añadir borde para la tabla */
+  box-sizing: border-box;
+}
+
+.table-responsive::-webkit-scrollbar {
+  height: 8px; /* Altura del scrollbar en dispositivos móviles */
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: #b0fc33;
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 .img {
   width: 30px;
   height: 30px;
 }
+
 .img:hover {
   cursor: pointer;
 }
@@ -304,9 +328,11 @@ table:hover {
   color: white;
   border-radius: 10px;
 }
+
 .btn-secondary:hover {
   box-shadow: 0 0 10px #b0fc33;
 }
+
 #BloqueTexto {
   width: 50%;
   height: 40px;
@@ -317,12 +343,46 @@ table:hover {
   align-items: center;
   margin-bottom: 20px;
 }
+
 #containerBloqueTexto {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 h5 {
   color: white;
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .table-responsive {
+    border: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-responsive {
+    width: 95%;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+    border: none;
+  }
+
+  table {
+    width: 100%;
+    min-width: 85%;
+  }
+
+  table:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  th,
+  td {
+    white-space: nowrap;
+  }
 }
 </style>
