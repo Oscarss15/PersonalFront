@@ -130,4 +130,20 @@ main {
   box-shadow: 0 0 20px #b0fc33;
   transform: scale(1.03);
 }
+@media (max-width: 768px) and (min-width: 481px) {
+  main {
+    grid-template-columns: auto;
+  }
+  .containerArticulo {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: auto;
+  }
+  .containerArticulo {
+    margin-bottom: 20px;
+  }
+}
 </style>

@@ -178,4 +178,14 @@ input[type="checkbox"] {
     transform: rotate(360deg);
   }
 }
+@media (max-width: 768px) and (min-width: 481px) {
+  .wrapper ul li {
+    width: 350px;
+  }
+}
+@media (max-width: 480px) {
+  .wrapper ul li {
+    width: 250px;
+  }
+}
 </style>
