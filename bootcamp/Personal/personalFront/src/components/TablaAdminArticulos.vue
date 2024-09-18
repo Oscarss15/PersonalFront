@@ -24,7 +24,7 @@ const closeModal = () => {
         <th scope="col">Id</th>
         <th scope="col">Título</th>
         <th scope="col">Autor</th>
-        <th scope="col">Descripción</th>
+        <th scope="col">Tipo</th>
         <th scope="col">Fecha</th>
         <th scope="col">Texto 1</th>
         <th scope="col">Texto 2</th>

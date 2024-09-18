@@ -7,7 +7,7 @@ const showModal = ref(false);
 const formData = ref({
   titulo: "",
   autor: "",
-  descripcion: "",
+  tipo: "",
   fecha: "",
   texto1: "",
   texto2: "",
@@ -63,8 +63,11 @@ const onFileChange = (e, imagenKey) => {
           <input type="text" id="autor" v-model="formData.autor" />
         </div>
         <div>
-          <label for="descripcion">Descripción</label>
-          <input type="text" id="descripcion" v-model="formData.descripcion" />
+          <label for="tipo">Tipo</label>
+          <select id="tipo" v-model="formData.tipo">
+            <option value="tecnica">Técnica</option>
+            <option value="psicologia">Psicología</option>
+          </select>
         </div>
         <div>
           <label for="fecha">Fecha</label>
@@ -268,7 +271,15 @@ const onFileChange = (e, imagenKey) => {
   grid-template-columns: 1fr 1fr;
   gap: 5px;
 }
-
+.form-grid select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+}
 .form-grid div {
   margin-bottom: 15px;
 }
