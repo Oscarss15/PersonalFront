@@ -1,8 +1,49 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted, computed } from "vue";
+
+// Propiedad reactiva para almacenar los artículos
+const articulos = ref([]);
+
+// Imagen por defecto para todas las tarjetas
+const defaultImgSrc = "../assets/img/tecnica/tecnica1.jpg"; // Cambia esta ruta a la imagen que deseas usar
+
+// Función para obtener los artículos de tipo técnica
+const fetchArticulos = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:8080/api/v1/articulos/tecnica"
+    ); // Cambia esta URL a tu API
+    if (!response.ok) {
+      throw new Error("Error al obtener los artículos");
+    }
+    const data = await response.json();
+    articulos.value = data; // Suponiendo que data es un array de artículos
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Llamar a fetchArticulos al montar el componente
+onMounted(fetchArticulos);
+
+// Computed para establecer el estilo del grid
+const gridStyle = computed(() => {
+  const count = articulos.value.length; // Número de artículos
+  return {
+    gridTemplateColumns: `repeat(${Math.min(count, 3)}, 1fr)`, // Máximo 3 columnas
+    justifyContent: count === 2 ? "center" : "flex-start", // Centrar si hay 2 elementos
+  };
+});
+</script>
+
 <template>
-  <main>
-    <RouterLink to="/articulos"
-      ><div class="containerArticulo">
+  <main :style="gridStyle">
+    <RouterLink
+      to="/articulos"
+      v-for="articulo in articulos"
+      :key="articulo.id"
+    >
+      <div class="containerArticulo">
         <div class="imageWrapper">
           <img
             class="imgTecnica"
@@ -10,78 +51,22 @@
             alt="Imagen técnica 1"
           />
           <div class="overlay">
-            <p>Titulo 1</p>
+            <p class="titulo">{{ articulo.titulo }}</p>
+            <p class="autor-fecha">
+              {{ articulo.autor }} - {{ articulo.fecha }}
+            </p>
           </div>
         </div>
       </div>
     </RouterLink>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgTecnica"
-          src="../assets/img/tecnica/tecnica1.jpg"
-          alt="Imagen técnica 2"
-        />
-        <div class="overlay">
-          <p>Titulo 2</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgTecnica"
-          src="../assets/img/tecnica/tecnica1.jpg"
-          alt="Imagen técnica 3"
-        />
-        <div class="overlay">
-          <p>Titulo 3</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgTecnica"
-          src="../assets/img/tecnica/tecnica1.jpg"
-          alt="Imagen técnica 4"
-        />
-        <div class="overlay">
-          <p>Titulo 4</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgTecnica"
-          src="../assets/img/tecnica/tecnica1.jpg"
-          alt="Imagen técnica 5"
-        />
-        <div class="overlay">
-          <p>Titulo 5</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgTecnica"
-          src="../assets/img/tecnica/tecnica1.jpg"
-          alt="Imagen técnica 6"
-        />
-        <div class="overlay">
-          <p>Titulo 6</p>
-        </div>
-      </div>
-    </div>
   </main>
 </template>
 
 <style scoped>
 main {
   display: grid;
-  grid-template-columns: auto auto auto;
+  gap: 10px; /* Espaciado entre tarjetas */
+  align-items: start; /* Alinea las tarjetas al principio de cada celda */
 }
 
 .containerArticulo {
@@ -93,6 +78,7 @@ main {
   overflow: hidden;
   border-radius: 10px;
 }
+
 .imageWrapper:hover {
   box-shadow: 0 0 10px #2d3b57;
 }
@@ -120,7 +106,7 @@ main {
 }
 
 .imageWrapper:hover .overlay {
-  height: 80px;
+  height: 80px; /* Aumenta la altura en hover */
   box-shadow: 0 0 10px #b0fc33;
 }
 
@@ -130,20 +116,32 @@ main {
   box-shadow: 0 0 20px #b0fc33;
   transform: scale(1.03);
 }
+
+.titulo {
+  margin: 0; /* Eliminar margen por defecto */
+}
+
+.autor-fecha {
+  margin: 0; /* Eliminar margen por defecto */
+  font-size: 1.5rem; /* Tamaño de fuente más pequeño */
+  opacity: 0; /* Ocultar inicialmente */
+  transition: opacity 0.3s ease; /* Transición para mostrar */
+  color: #b0fc33;
+}
+
+.imageWrapper:hover .autor-fecha {
+  opacity: 1; /* Mostrar al hacer hover */
+}
+
 @media (max-width: 768px) and (min-width: 481px) {
   main {
-    grid-template-columns: auto;
-  }
-  .containerArticulo {
-    margin-bottom: 20px;
+    grid-template-columns: 1fr; /* Columna única en pantallas medianas */
   }
 }
+
 @media (max-width: 480px) {
   main {
-    grid-template-columns: auto;
-  }
-  .containerArticulo {
-    margin-bottom: 20px;
+    grid-template-columns: 1fr; /* Columna única en pantallas pequeñas */
   }
 }
 </style>
