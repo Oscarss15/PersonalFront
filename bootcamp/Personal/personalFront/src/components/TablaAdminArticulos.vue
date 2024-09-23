@@ -1,20 +1,48 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
-// Variables para manejar el estado del modal
+const articulos = ref([]);
 const showModal = ref(false);
 const modalContent = ref("");
 
-// Función para mostrar el modal con el texto correspondiente
 const openModal = (texto) => {
   modalContent.value = texto;
   showModal.value = true;
 };
 
-// Función para cerrar el modal
 const closeModal = () => {
   showModal.value = false;
 };
+
+const fetchArticulos = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:8080/api/v1/articulos/allarticulos"
+    );
+    if (!response.ok) {
+      throw new Error("Error al obtener los artículos");
+    }
+    const data = await response.json();
+    articulos.value = data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const deleteArticulo = async (id) => {
+  try {
+    await fetch(`http://localhost:8080/api/v1/articulos/${id}`, {
+      method: "DELETE",
+    });
+    articulos.value = articulos.value.filter((articulo) => articulo.id !== id);
+  } catch (error) {
+    console.error("Error al eliminar el artículo:", error);
+  }
+};
+
+onMounted(() => {
+  fetchArticulos();
+});
 </script>
 
 <template>
@@ -38,48 +66,30 @@ const closeModal = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Título 1</td>
-          <td>Autor 1</td>
-          <td>Descripción 1</td>
-          <td>10-12-2024</td>
+        <tr v-for="articulo in articulos" :key="articulo.id">
+          <th scope="row">{{ articulo.id }}</th>
+          <td>{{ articulo.titulo }}</td>
+          <td>{{ articulo.autor }}</td>
+          <td>{{ articulo.tipo }}</td>
+          <td>{{ articulo.fecha }}</td>
           <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
+            <span class="ver-info" @click="openModal(articulo.texto1)"
               >+Info</span
             >
           </td>
           <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
+            <span class="ver-info" @click="openModal(articulo.texto2)"
               >+Info</span
             >
           </td>
           <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
+            <span class="ver-info" @click="openModal(articulo.texto3)"
               >+Info</span
             >
           </td>
-          <td>imagen1.png</td>
-          <td>imagen2.png</td>
-          <td>imagen3.png</td>
+          <td>{{ articulo.imagen1 }}</td>
+          <td>{{ articulo.imagen2 }}</td>
+          <td>{{ articulo.imagen3 }}</td>
           <td>
             <img
               class="img"
@@ -92,120 +102,7 @@ const closeModal = () => {
               class="img"
               src="../assets/img/admin/eliminarArticulo.png"
               alt="Eliminar"
-            />
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>Título 1</td>
-          <td>Autor 1</td>
-          <td>Descripción 1</td>
-          <td>10-12-2024</td>
-          <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
-              >+Info</span
-            >
-          </td>
-          <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
-              >+Info</span
-            >
-          </td>
-          <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
-              >+Info</span
-            >
-          </td>
-          <td>imagen1.png</td>
-          <td>imagen2.png</td>
-          <td>imagen3.png</td>
-          <td>
-            <img
-              class="img"
-              src="../assets/img/admin/editarArticulo.png"
-              alt="Editar"
-            />
-          </td>
-          <td>
-            <img
-              class="img"
-              src="../assets/img/admin/eliminarArticulo.png"
-              alt="Eliminar"
-            />
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>Título 1</td>
-          <td>Autor 1</td>
-          <td>Descripción 1</td>
-          <td>10-12-2024</td>
-          <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
-              >+Info</span
-            >
-          </td>
-          <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
-              >+Info</span
-            >
-          </td>
-          <td>
-            <span
-              class="ver-info"
-              @click="
-                openModal(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque nisl ac ipsum imperdiet, non varius dolor ultricies. Maecenas sagittis accumsan mauris, euismod eleifend lectus maximus sed. Etiam scelerisque erat vel odio iaculis venenatis. In bibendum ullamcorper ipsum. Proin vel velit sem. Donec tempus consectetur nulla, sit amet porta neque accumsan sed. In mollis porta justo, ac ultrices orci luctus a. Duis in pharetra libero.'
-                )
-              "
-              >+Info</span
-            >
-          </td>
-          <td>imagen1.png</td>
-          <td>imagen2.png</td>
-          <td>imagen3.png</td>
-          <td>
-            <img
-              class="img"
-              src="../assets/img/admin/editarArticulo.png"
-              alt="Editar"
-            />
-          </td>
-          <td>
-            <img
-              class="img"
-              src="../assets/img/admin/eliminarArticulo.png"
-              alt="Eliminar"
+              @click="deleteArticulo(articulo.id)"
             />
           </td>
         </tr>
@@ -229,7 +126,7 @@ const closeModal = () => {
   width: 90%;
   box-shadow: 0 0 20px #2d3b57;
   border-radius: 10px;
-  overflow-x: auto; /* Habilitar el scroll horizontal si es necesario */
+  overflow-x: auto;
   box-sizing: border-box; /* Incluye el padding y border en el width total */
 }
 
