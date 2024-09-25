@@ -74,6 +74,7 @@
       </div>
     </div>
   </div>
+  <div class="separador"></div>
 </template>
 <style scoped>
 #containerArticulos {
@@ -81,10 +82,13 @@
   grid-template-columns: auto;
   width: 100%;
 }
+
 .contArticulo {
   height: auto;
   margin-bottom: 30px;
+  display: flex;
 }
+
 .contTexto {
   width: 70%;
   display: flex;
@@ -93,6 +97,7 @@
   height: 300px;
   float: left;
 }
+
 .contImagen {
   width: 30%;
   height: 300px;
@@ -101,6 +106,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .contTextoInvertido {
   width: 70%;
   display: flex;
@@ -109,6 +115,7 @@
   height: 300px;
   float: right;
 }
+
 .contImagenInvertido {
   width: 30%;
   display: flex;
@@ -117,6 +124,7 @@
   height: 300px;
   float: left;
 }
+
 #bloqueTexto1,
 #bloqueTexto2,
 #bloqueTexto3 {
@@ -133,15 +141,78 @@
   height: 90%;
   border-radius: 10px;
   box-shadow: 0 0 20px #2d3b57;
+  object-fit: cover;
+  transition: 1000ms;
 }
+.img1:hover,
+.img2:hover,
+.img3:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  box-shadow: 0 0 20px #b0fc33;
+  transform: scale(1.03);
+}
+
 .contSeparador {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .separador {
   width: 100%;
   height: 15px;
   background-color: #2d3b57;
+}
+@media (min-width: 481px) and (max-width: 1024px) {
+  .contArticulo {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contTexto,
+  .contTextoInvertido {
+    width: 100%;
+    float: none;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .img1,
+  .img2,
+  .img3,
+  .contImagen,
+  .contImagenInvertido {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .contArticulo {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contTexto,
+  .contTextoInvertido {
+    width: 100%;
+    float: none;
+    height: auto;
+  }
+
+  .img1,
+  .img2,
+  .img3,
+  .contImagen,
+  .contImagenInvertido {
+    display: none;
+  }
+
+  #bloqueTexto1,
+  #bloqueTexto2,
+  #bloqueTexto3 {
+    width: 90%;
+    font-size: 14px;
+    padding: 15px;
+  }
 }
 </style>

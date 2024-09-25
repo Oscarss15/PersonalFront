@@ -1,10 +1,35 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
+// Estado de los artículos
 const articulos = ref([]);
+
+// Estado del modal
 const showModal = ref(false);
 const modalContent = ref("");
 
+// Estado para el modal de nuevo artículo
+const showAddModal = ref(false);
+
+// Estado para el artículo a editar
+const articuloEdicion = ref(null);
+const showEditModal = ref(false);
+
+// Modelo para los datos del nuevo artículo
+const nuevoArticulo = ref({
+  titulo: "",
+  autor: "",
+  tipo: "",
+  fecha: "",
+  texto1: "",
+  texto2: "",
+  texto3: "",
+  imagen1: "",
+  imagen2: "",
+  imagen3: "",
+});
+
+// Funciones para abrir y cerrar el modal
 const openModal = (texto) => {
   modalContent.value = texto;
   showModal.value = true;
@@ -12,6 +37,24 @@ const openModal = (texto) => {
 
 const closeModal = () => {
   showModal.value = false;
+};
+
+const openAddModal = () => {
+  showAddModal.value = true;
+};
+
+const closeAddModal = () => {
+  showAddModal.value = false;
+};
+
+const openEditModal = (articulo) => {
+  articuloEdicion.value = { ...articulo };
+  showEditModal.value = true;
+};
+
+const closeEditModal = () => {
+  showEditModal.value = false;
+  articuloEdicion.value = null;
 };
 
 const fetchArticulos = async () => {
@@ -95,6 +138,7 @@ onMounted(() => {
               class="img"
               src="../assets/img/admin/editarArticulo.png"
               alt="Editar"
+              @click="openEditModal(articulo)"
             />
           </td>
           <td>
@@ -113,10 +157,116 @@ onMounted(() => {
   <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
     <div class="modal-content">
       <div id="containerBloqueTexto">
-        <div id="BloqueTexto"><h5>Bloque de Texto</h5></div>
+        <div id="cntbloqueTexto">
+          <div id="BloqueTexto"><h5>Bloque de Texto</h5></div>
+        </div>
       </div>
       <p>{{ modalContent }}</p>
-      <button class="btn btn-secondary" @click="closeModal">Cerrar</button>
+      <button class="btn btn-secondary" id="btnCerrar" @click="closeModal">
+        Cerrar
+      </button>
+    </div>
+  </div>
+
+  <div v-if="showAddModal" class="modal-overlay" @click.self="closeAddModal">
+    <div class="modal-content">
+      <h3>Añadir Nuevo Artículo</h3>
+      <form @submit.prevent="addArticulo">
+        <label for="titulo">Título</label>
+        <input id="titulo" required />
+
+        <label for="autor">Autor</label>
+        <input id="autor" required />
+
+        <label for="tipo">Tipo</label>
+        <input id="tipo" required />
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" required />
+
+        <label for="texto1">Texto 1</label>
+        <textarea id="texto1"></textarea>
+
+        <label for="texto2">Texto 2</label>
+        <textarea id="texto2"></textarea>
+
+        <label for="texto3">Texto 3</label>
+        <textarea id="texto3"></textarea>
+
+        <label for="imagen1">Imagen 1</label>
+        <input id="imagen1" />
+
+        <label for="imagen2">Imagen 2</label>
+        <input id="imagen2" />
+
+        <label for="imagen3">Imagen 3</label>
+        <input id="imagen3" />
+
+        <button type="submit" class="btn btn-primary">Añadir Artículo</button>
+        <button type="button" class="btn btn-secondary" @click="closeAddModal">
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para editar artículo -->
+  <div
+    v-if="showEditModal"
+    class="modal-background"
+    @click.self="closeEditModal"
+  >
+    <div class="modal-content" @click.stop>
+      <h2>Editar Artículo</h2>
+      <form @submit.prevent="updateArticulo" class="form-grid">
+        <div>
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" />
+        </div>
+        <div>
+          <label for="autor">Autor</label>
+          <input type="text" id="autor" />
+        </div>
+        <div>
+          <label for="tipo">Tipo</label>
+          <select v-model="articuloEdicion.tipo" id="tipo">
+            <option value="tecnica">Técnica</option>
+            <option value="psicologia">Psicología</option>
+          </select>
+        </div>
+        <div>
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" />
+        </div>
+        <div>
+          <label for="texto1">Texto 1</label>
+          <input type="text" id="texto1" />
+        </div>
+        <div>
+          <label for="texto2">Texto 2</label>
+          <input type="text" id="texto2" />
+        </div>
+        <div>
+          <label for="texto3">Texto 3</label>
+          <input type="text" id="texto3" />
+        </div>
+        <div>
+          <label for="imagen1">Imagen 1</label>
+          <input type="file" id="imagen1" />
+        </div>
+        <div>
+          <label for="imagen2">Imagen 2</label>
+          <input type="file" id="imagen2" />
+        </div>
+        <div>
+          <label for="imagen3">Imagen 3</label>
+          <input type="file" id="imagen3" />
+        </div>
+        <div class="submit-btn">
+          <button type="submit">Actualizar Artículo</button>
+        </div>
+      </form>
+      <button class="cerrar" @click="closeEditModal">Cerrar</button>
     </div>
   </div>
 </template>
@@ -127,33 +277,30 @@ onMounted(() => {
   box-shadow: 0 0 20px #2d3b57;
   border-radius: 10px;
   overflow-x: auto;
-  box-sizing: border-box; /* Incluye el padding y border en el width total */
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse; /* Elimina espacios entre celdas */
   box-sizing: border-box;
+  background-color: #2d3b57;
 }
 
-table th,
-table td {
-  padding: 8px; /* Ajustar el padding si es necesario */
-  border: 1px solid #454d66; /* Añadir borde para la tabla */
-  box-sizing: border-box;
+.custom-table-dark {
+  background-color: #2d3b57;
+  color: #fff !important;
 }
 
-.table-responsive::-webkit-scrollbar {
-  height: 8px; /* Altura del scrollbar en dispositivos móviles */
+.custom-table-dark th {
+  background-color: #454d66;
+  color: #b0fc33;
+  padding: 10px;
 }
 
-.table-responsive::-webkit-scrollbar-thumb {
-  background-color: #b0fc33;
-  border-radius: 10px;
+.custom-table-dark tr {
+  background-color: #2d3b57;
+  color: white;
 }
 
-.table-responsive::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+.custom-table-dark td {
+  padding: 8px;
+  background-color: #3b4969;
+  color: white;
 }
 
 .img {
@@ -165,26 +312,22 @@ table td {
   cursor: pointer;
 }
 
-.custom-table-dark {
-  background-color: #2d3b57 !important;
-  color: #fff !important;
-}
-
-.custom-table-dark th,
-.custom-table-dark td {
-  background-color: #2d3b57 !important;
-  color: #fff !important;
-  border-color: #454d66 !important;
-}
-
 .ver-info {
   color: #b0fc33;
   cursor: pointer;
-  text-decoration: none;
 }
 
 .ver-info:hover {
   color: white;
+}
+
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: #b0fc33;
+  border-radius: 10px;
 }
 
 .modal-overlay {
@@ -192,94 +335,137 @@ table td {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5000;
+}
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
 }
 
 .modal-content {
-  background-color: white;
-  width: 75%;
+  background-color: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
+  width: 500px;
+  max-width: 90%;
   text-align: center;
-  transform: scale(0.9);
-  transition: transform 0.5s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1060;
 }
 
-.modal-overlay div.modal-content {
-  transform: scale(1.1);
-}
-
-.btn {
-  margin: 5px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-secondary {
+.modal-content h2 {
+  margin-top: 0;
   background-color: #2d3b57;
   color: white;
+  padding: 3px;
   border-radius: 10px;
 }
 
-.btn-secondary:hover {
-  box-shadow: 0 0 10px #b0fc33;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
 }
 
-#BloqueTexto {
-  width: 50%;
-  height: 40px;
-  border-radius: 5px;
+.form-grid div {
+  margin-bottom: 15px;
+}
+
+.form-grid label {
+  display: block;
+  font-weight: bold;
   background-color: #2d3b57;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  color: White;
 }
 
-#containerBloqueTexto {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.form-grid input,
+.form-grid select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-h5 {
+.submit-btn {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.modal-content form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2d3b57;
   color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-@media (max-width: 768px) and (min-width: 481px) {
-  .table-responsive {
-    border: none;
-  }
+.modal-content button:hover {
+  background-color: #b0fc33;
+  color: #2d3b57;
 }
 
-@media (max-width: 480px) {
-  .table-responsive {
-    width: 95%;
-    margin: 0 auto;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 10px;
-    border: none;
-  }
+.cerrar {
+  background-color: #2d3b57;
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+  border: none;
+  font-weight: bold;
+}
 
-  table {
-    width: 100%;
-    min-width: 85%;
-  }
+table button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+}
 
-  table:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  th,
-  td {
-    white-space: nowrap;
-  }
+table button:hover {
+  opacity: 0.7;
+}
+#BloqueTexto {
+  background-color: #2d3b57;
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 85%;
+}
+#btnCerrar {
+  background-color: #2d3b57;
+  border-radius: 10px;
+}
+#btnCerrar:hover {
+  background-color: #b0fc33;
+  font-weight: bold;
+  color: #2d3b57;
+  border-color: white;
+}
+#cntbloqueTexto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

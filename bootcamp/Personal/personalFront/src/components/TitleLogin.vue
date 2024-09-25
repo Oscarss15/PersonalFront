@@ -24,4 +24,24 @@ h2 {
     transform: rotate(360deg);
   }
 }
+@media (max-width: 1024px) and (min-width: 481px) {
+  h2 {
+    font-size: 45px;
+    padding: 10px;
+  }
+  #ballPadel {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (max-width: 480px) {
+  h2 {
+    font-size: 25px;
+    padding: 10px;
+  }
+  #ballPadel {
+    width: 60px;
+    height: 60px;
+  }
+}
 </style>

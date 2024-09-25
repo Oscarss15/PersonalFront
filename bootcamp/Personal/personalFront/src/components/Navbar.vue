@@ -47,6 +47,13 @@ function closeMenu() {
   </div>
 </template>
 <style scoped>
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 #menu {
   width: 100%;
   background-color: #2d3b57;
@@ -178,7 +185,7 @@ input[type="checkbox"] {
     transform: rotate(360deg);
   }
 }
-@media (max-width: 768px) and (min-width: 481px) {
+@media (max-width: 1024px) and (min-width: 481px) {
   .wrapper ul li {
     width: 350px;
   }

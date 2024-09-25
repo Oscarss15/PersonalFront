@@ -69,4 +69,28 @@ main {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 1024px) and (min-width: 481px) {
+  main {
+    min-height: 1150px;
+  }
+  #contTitleLogin {
+    width: 100%;
+    height: 350px;
+    margin-bottom: 100px;
+  }
+  #containerLogin {
+    margin-top: 100px;
+    width: 100%;
+    height: 100px;
+  }
+}
+@media (max-width: 480px) {
+  #contTitleLogin {
+    display: none;
+  }
+  #containerLogin {
+    width: 100%;
+    height: 600px;
+  }
+}
 </style>

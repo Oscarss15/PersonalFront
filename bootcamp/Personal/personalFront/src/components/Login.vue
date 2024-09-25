@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <div class="row full-height justify-content-center">
+  <div class="row full-height justify-content-center" id="contlogin">
     <div class="col-12 text-center align-self-center py-5">
       <div class="section pb-5 pt-5 pt-sm-2 text-center">
         <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
@@ -365,5 +365,12 @@ h6 {
 }
 #text {
   color: #b0fc33;
+}
+@media (max-width: 1024px) and (min-width: 481px) {
+}
+@media (max-width: 480px) {
+  #contlogin {
+    width: 85%;
+  }
 }
 </style>

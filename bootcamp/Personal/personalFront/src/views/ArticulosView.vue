@@ -1,12 +1,14 @@
 <script setup>
 import TituloArticulo from "@/components/TituloArticulo.vue";
 import CuerpoArticulo from "@/components/CuerpoArticulo.vue";
+import BotonVolverArticulo from "@/components/BotonVolverArticulo.vue";
 </script>
 
 <template>
   <main>
     <TituloArticulo></TituloArticulo>
     <CuerpoArticulo></CuerpoArticulo>
+    <BotonVolverArticulo></BotonVolverArticulo>
   </main>
 </template>
 <style scoped>

@@ -17,4 +17,9 @@ main {
   object-fit: cover;
   background-attachment: fixed;
 }
+@media (min-width: 481px) and (max-width: 1024px) {
+  main {
+    min-height: 957px;
+  }
+}
 </style>

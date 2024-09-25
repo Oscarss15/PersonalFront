@@ -34,4 +34,9 @@ main {
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 481px) and (max-width: 1024px) {
+  main {
+    min-height: 1100px;
+  }
+}
 </style>

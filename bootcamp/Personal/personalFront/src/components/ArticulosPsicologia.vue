@@ -1,91 +1,65 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+
+const articulos = ref([]);
+
+const defaultImgSrc = "../assets/img/psicologia/psicologia1.jpg";
+
+const fetchArticulos = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:8080/api/v1/articulos/psicologia"
+    );
+    if (!response.ok) {
+      throw new Error("Error al obtener los artículos");
+    }
+    const data = await response.json();
+    articulos.value = data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+onMounted(fetchArticulos);
+</script>
+
 <template>
   <main>
-    <RouterLink to="/articulos"
-      ><div class="containerArticulo">
+    <RouterLink
+      to="/articulos"
+      v-for="articulo in articulos"
+      :key="articulo.id"
+    >
+      <div class="containerArticulo">
         <div class="imageWrapper">
           <img
             class="imgPsicologia"
             src="../assets/img/psicologia/psicologia1.jpg"
-            alt="Imagen psicologia 1"
+            alt="Imagen psicología"
           />
           <div class="overlay">
-            <p>Titulo 1</p>
+            <p class="titulo">{{ articulo.titulo }}</p>
+            <p class="autor-fecha">
+              {{ articulo.autor }} - {{ articulo.fecha }}
+            </p>
           </div>
         </div>
       </div>
     </RouterLink>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgPsicologia"
-          src="../assets/img/psicologia/psicologia1.jpg"
-          alt="Imagen psicologia 2"
-        />
-        <div class="overlay">
-          <p>Titulo 2</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgPsicologia"
-          src="../assets/img/psicologia/psicologia1.jpg"
-          alt="Imagen psicologia 3"
-        />
-        <div class="overlay">
-          <p>Titulo 3</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgPsicologia"
-          src="../assets/img/psicologia/psicologia1.jpg"
-          alt="Imagen psicologia 4"
-        />
-        <div class="overlay">
-          <p>Titulo 4</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgPsicologia"
-          src="../assets/img/psicologia/psicologia1.jpg"
-          alt="Imagen psicologia 5"
-        />
-        <div class="overlay">
-          <p>Titulo 5</p>
-        </div>
-      </div>
-    </div>
-    <div class="containerArticulo">
-      <div class="imageWrapper">
-        <img
-          class="imgPsicologia"
-          src="../assets/img/psicologia/psicologia1.jpg"
-          alt="Imagen técnica 6"
-        />
-        <div class="overlay">
-          <p>Titulo 6</p>
-        </div>
-      </div>
-    </div>
   </main>
 </template>
 
 <style scoped>
 main {
   display: grid;
-  grid-template-columns: auto auto auto;
+  gap: 10px;
+  align-items: start;
+  grid-template-columns: repeat(3, 1fr); /* Asegura 3 columnas por defecto */
 }
 
 .containerArticulo {
   padding: 5px;
+  width: 100%; /* Asegura que ocupe el 100% del contenedor */
 }
 
 .imageWrapper {
@@ -93,6 +67,7 @@ main {
   overflow: hidden;
   border-radius: 10px;
 }
+
 .imageWrapper:hover {
   box-shadow: 0 0 10px #2d3b57;
 }
@@ -130,20 +105,42 @@ main {
   box-shadow: 0 0 20px #b0fc33;
   transform: scale(1.03);
 }
-@media (max-width: 768px) and (min-width: 481px) {
+
+.titulo {
+  margin: 0;
+}
+
+.autor-fecha {
+  margin: 0;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #b0fc33;
+}
+
+.imageWrapper:hover .autor-fecha {
+  opacity: 1;
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
   main {
-    grid-template-columns: auto;
-  }
-  .containerArticulo {
-    margin-bottom: 20px;
+    grid-template-columns: 1fr 1fr; /* 1 columna en pantallas más pequeñas */
+    min-height: 800px;
+    background-color: red;
   }
 }
 @media (max-width: 480px) {
   main {
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
   }
   .containerArticulo {
-    margin-bottom: 20px;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1025px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

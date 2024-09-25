@@ -1,43 +1,30 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted } from "vue";
 
-// Propiedad reactiva para almacenar los artículos
 const articulos = ref([]);
 
-// Imagen por defecto para todas las tarjetas
-const defaultImgSrc = "../assets/img/tecnica/tecnica1.jpg"; // Cambia esta ruta a la imagen que deseas usar
+const defaultImgSrc = "../assets/img/tecnica/tecnica1.jpg";
 
-// Función para obtener los artículos de tipo técnica
 const fetchArticulos = async () => {
   try {
     const response = await fetch(
       "http://localhost:8080/api/v1/articulos/tecnica"
-    ); // Cambia esta URL a tu API
+    );
     if (!response.ok) {
       throw new Error("Error al obtener los artículos");
     }
     const data = await response.json();
-    articulos.value = data; // Suponiendo que data es un array de artículos
+    articulos.value = data;
   } catch (error) {
     console.error(error);
   }
 };
 
-// Llamar a fetchArticulos al montar el componente
 onMounted(fetchArticulos);
-
-// Computed para establecer el estilo del grid
-const gridStyle = computed(() => {
-  const count = articulos.value.length; // Número de artículos
-  return {
-    gridTemplateColumns: `repeat(${Math.min(count, 3)}, 1fr)`, // Máximo 3 columnas
-    justifyContent: count === 2 ? "center" : "flex-start", // Centrar si hay 2 elementos
-  };
-});
 </script>
 
 <template>
-  <main :style="gridStyle">
+  <main>
     <RouterLink
       to="/articulos"
       v-for="articulo in articulos"
@@ -65,12 +52,14 @@ const gridStyle = computed(() => {
 <style scoped>
 main {
   display: grid;
-  gap: 10px; /* Espaciado entre tarjetas */
-  align-items: start; /* Alinea las tarjetas al principio de cada celda */
+  gap: 10px;
+  align-items: start;
+  grid-template-columns: repeat(3, 1fr); /* Asegura 3 columnas por defecto */
 }
 
 .containerArticulo {
   padding: 5px;
+  width: 100%; /* Asegura que ocupe el 100% del contenedor */
 }
 
 .imageWrapper {
@@ -106,7 +95,7 @@ main {
 }
 
 .imageWrapper:hover .overlay {
-  height: 80px; /* Aumenta la altura en hover */
+  height: 80px;
   box-shadow: 0 0 10px #b0fc33;
 }
 
@@ -118,30 +107,40 @@ main {
 }
 
 .titulo {
-  margin: 0; /* Eliminar margen por defecto */
+  margin: 0;
 }
 
 .autor-fecha {
-  margin: 0; /* Eliminar margen por defecto */
-  font-size: 1.5rem; /* Tamaño de fuente más pequeño */
-  opacity: 0; /* Ocultar inicialmente */
-  transition: opacity 0.3s ease; /* Transición para mostrar */
+  margin: 0;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
   color: #b0fc33;
 }
 
 .imageWrapper:hover .autor-fecha {
-  opacity: 1; /* Mostrar al hacer hover */
+  opacity: 1;
 }
-
-@media (max-width: 768px) and (min-width: 481px) {
+@media (min-width: 481px) and (max-width: 1024px) {
   main {
-    grid-template-columns: 1fr; /* Columna única en pantallas medianas */
+    grid-template-columns: 1fr 1fr; /* 1 columna en pantallas más pequeñas */
+    min-height: 800px;
+    background-color: red;
+  }
+}
+/* Media queries para diseño responsivo */
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr; /* 1 columna en pantallas más pequeñas */
+  }
+  .containerArticulo {
+    padding: 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1025px) {
   main {
-    grid-template-columns: 1fr; /* Columna única en pantallas pequeñas */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

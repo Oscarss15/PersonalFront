@@ -56,34 +56,34 @@ const onFileChange = (e, imagenKey) => {
       <form @submit.prevent="submitForm" class="form-grid">
         <div>
           <label for="titulo">Título</label>
-          <input type="text" id="titulo" v-model="formData.titulo" />
+          <input type="text" id="titulo" />
         </div>
         <div>
           <label for="autor">Autor</label>
-          <input type="text" id="autor" v-model="formData.autor" />
+          <input type="text" id="autor" />
         </div>
         <div>
           <label for="tipo">Tipo</label>
-          <select id="tipo" v-model="formData.tipo">
+          <select id="tipo">
             <option value="tecnica">Técnica</option>
             <option value="psicologia">Psicología</option>
           </select>
         </div>
         <div>
           <label for="fecha">Fecha</label>
-          <input type="date" id="fecha" v-model="formData.fecha" />
+          <input type="date" id="fecha" />
         </div>
         <div>
           <label for="texto1">Texto 1</label>
-          <input type="text" id="texto1" v-model="formData.texto1" />
+          <input type="text" id="texto1" />
         </div>
         <div>
           <label for="texto2">Texto 2</label>
-          <input type="text" id="texto2" v-model="formData.texto2" />
+          <input type="text" id="texto2" />
         </div>
         <div>
           <label for="texto3">Texto 3</label>
-          <input type="text" id="texto3" v-model="formData.texto3" />
+          <input type="text" id="texto3" />
         </div>
         <div>
           <label for="imagen1">Imagen 1</label>
