@@ -1,8 +1,12 @@
-<script setup></script>
+<script setup>
+import TituloHome from "@/components/TituloHome.vue";
+import CardsHome from "@/components/CardsHome.vue";
+</script>
 
 <template>
   <main>
-    <h1>Home</h1>
+    <TituloHome></TituloHome>
+    <CardsHome></CardsHome>
   </main>
 </template>
 <style scoped>
