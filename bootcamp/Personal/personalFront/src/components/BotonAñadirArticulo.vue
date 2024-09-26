@@ -42,7 +42,7 @@ const onFileChange = (e, imagenKey) => {
 </script>
 
 <template>
-  <button class="button" @click="openModal">
+  <!--   <button class="button" @click="openModal">
     Añadir Articulo
     <span></span>
     <span></span>
@@ -115,11 +115,11 @@ const onFileChange = (e, imagenKey) => {
       </form>
       <button class="cerrar" @click="closeModal">Cerrar</button>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
-.button {
+/* .button {
   width: 250px;
   height: 70px;
   background-color: #2d3b57;
@@ -352,5 +352,5 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 </style>
