@@ -1,9 +1,33 @@
+<template>
+  <main>
+    <RouterLink
+      to="/articulos"
+      v-for="articulo in articulos"
+      :key="articulo.id"
+    >
+      <div class="containerArticulo">
+        <div class="imageWrapper">
+          <img
+            class="imgTecnica"
+            :src="getImageSrc(articulo.imagen1)"
+            alt="Imagen técnica"
+          />
+          <div class="overlay">
+            <p class="titulo">{{ articulo.titulo }}</p>
+            <p class="autor-fecha">
+              {{ articulo.autor }} - {{ articulo.fecha }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </RouterLink>
+  </main>
+</template>
+
 <script setup>
 import { ref, onMounted } from "vue";
 
 const articulos = ref([]);
-
-const defaultImgSrc = "../assets/img/tecnica/tecnica1.jpg";
 
 const fetchArticulos = async () => {
   try {
@@ -20,34 +44,15 @@ const fetchArticulos = async () => {
   }
 };
 
+const getImageSrc = (imagen) => {
+  if (imagen) {
+    return `http://localhost:5000/${imagen}`;
+  }
+  return "../assets/img/tecnica/tecnica1.jpg"; // imagen por defecto
+};
+
 onMounted(fetchArticulos);
 </script>
-
-<template>
-  <main>
-    <RouterLink
-      to="/articulos"
-      v-for="articulo in articulos"
-      :key="articulo.id"
-    >
-      <div class="containerArticulo">
-        <div class="imageWrapper">
-          <img
-            class="imgTecnica"
-            src="../assets/img/tecnica/tecnica1.jpg"
-            alt="Imagen técnica 1"
-          />
-          <div class="overlay">
-            <p class="titulo">{{ articulo.titulo }}</p>
-            <p class="autor-fecha">
-              {{ articulo.autor }} - {{ articulo.fecha }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </RouterLink>
-  </main>
-</template>
 
 <style scoped>
 main {
