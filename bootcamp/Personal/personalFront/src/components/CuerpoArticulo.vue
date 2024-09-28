@@ -1,88 +1,124 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import BotonVolverArticulo from "./BotonVolverArticulo.vue";
+
+const route = useRoute();
+const articulo = ref(null);
+
+const fetchArticulo = async () => {
+  try {
+    const response = await fetch(
+      `http://localhost:8080/api/v1/articulos/${route.params.id}`
+    );
+    if (!response.ok) {
+      throw new Error("Error al obtener el artículo");
+    }
+    articulo.value = await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getImageSrc = (imagen) => {
+  if (imagen) {
+    return `http://localhost:5000/${imagen}`;
+  }
+  return "../assets/img/tecnica/tecnica1.jpg"; // imagen por defecto
+};
+// Función para determinar la ruta de regreso
+const getBackLink = () => {
+  return articulo.value?.tipo === "tecnica" ? "/tecnica" : "/psicologia";
+};
+
+onMounted(fetchArticulo);
+</script>
 <template>
-  <div id="containerArticulos">
-    <div class="contArticulo">
-      <div class="contTexto">
-        <p id="bloqueTexto1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-          tortor massa, lacinia quis felis quis, viverra tincidunt libero. Cras
-          in leo eu arcu facilisis aliquet. Mauris eros sem, consectetur et est
-          a, cursus tristique felis. Donec ultricies, ipsum sit amet facilisis
-          pretium, lacus est lobortis dui, auctor venenatis enim neque at nibh.
-          Mauris venenatis, felis at tristique iaculis, enim dolor posuere
-          neque, non pulvinar metus arcu vel lectus. Vivamus fringilla sodales
-          felis non scelerisque. Sed ac elit lacinia, cursus mauris
-          pellentesque, iaculis quam. Proin at sem eu turpis varius lobortis.
-          Pellentesque sit amet purus mattis, ullamcorper massa elementum,
-          volutpat erat. Sed consequat ex est, quis tristique odio tempor ut.
-          Sed at molestie orci. Mauris vel quam vestibulum elit vestibulum
-          egestas ut at augue. Sed dictum convallis arcu.
-        </p>
+  <main>
+    <div id="space"></div>
+    <div id="containerTitulo">
+      <h1 class="titulo" v-if="articulo">{{ articulo.titulo }}</h1>
+    </div>
+    <div id="space"></div>
+
+    <div id="containerArticulos" v-if="articulo">
+      <div class="contArticulo">
+        <div class="contTexto">
+          <p id="bloqueTexto1">
+            {{ articulo.texto1 }}
+          </p>
+        </div>
+        <div class="contImagen">
+          <img class="img1" :src="getImageSrc(articulo.imagen1)" alt="" />
+        </div>
       </div>
-      <div class="contImagen">
-        <img class="img1" src="../assets/img/tecnica/tecnica1.jpg" alt="" />
+      <div class="contSeparador">
+        <div class="separador"></div>
+      </div>
+      <div class="contArticulo">
+        <div class="contTextoInvertido">
+          <p id="bloqueTexto2">
+            {{ articulo.texto2 }}
+          </p>
+        </div>
+        <div class="contImagenInvertido">
+          <img class="img1" :src="getImageSrc(articulo.imagen2)" alt="" />
+        </div>
+      </div>
+      <div class="contSeparador">
+        <div class="separador"></div>
+      </div>
+      <div class="contArticulo">
+        <div class="contTexto">
+          <p id="bloqueTexto3">
+            {{ articulo.texto3 }}
+          </p>
+        </div>
+        <div class="contImagen">
+          <img class="img1" :src="getImageSrc(articulo.imagen3)" alt="" />
+        </div>
       </div>
     </div>
-    <div class="contSeparador">
-      <div class="separador"></div>
-    </div>
-    <div class="contArticulo">
-      <div class="contTextoInvertido">
-        <p id="bloqueTexto2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-          tortor massa, lacinia quis felis quis, viverra tincidunt libero. Cras
-          in leo eu arcu facilisis aliquet. Mauris eros sem, consectetur et est
-          a, cursus tristique felis. Donec ultricies, ipsum sit amet facilisis
-          pretium, lacus est lobortis dui, auctor venenatis enim neque at nibh.
-          Mauris venenatis, felis at tristique iaculis, enim dolor posuere
-          neque, non pulvinar metus arcu vel lectus. Vivamus fringilla sodales
-          felis non scelerisque. Sed ac elit lacinia, cursus mauris
-          pellentesque, iaculis quam. Proin at sem eu turpis varius lobortis.
-          Pellentesque sit amet purus mattis, ullamcorper massa elementum,
-          volutpat erat. Sed consequat ex est, quis tristique odio tempor ut.
-          Sed at molestie orci. Mauris vel quam vestibulum elit vestibulum
-          egestas ut at augue. Sed dictum convallis arcu.
-        </p>
-      </div>
-      <div class="contImagenInvertido">
-        <img class="img2" src="../assets/img/tecnica/tecnica1.jpg" alt="" />
-      </div>
-    </div>
-    <div class="contSeparador">
-      <div class="separador"></div>
-    </div>
-    <div class="contArticulo">
-      <div class="contTexto">
-        <p id="bloqueTexto3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-          tortor massa, lacinia quis felis quis, viverra tincidunt libero. Cras
-          in leo eu arcu facilisis aliquet. Mauris eros sem, consectetur et est
-          a, cursus tristique felis. Donec ultricies, ipsum sit amet facilisis
-          pretium, lacus est lobortis dui, auctor venenatis enim neque at nibh.
-          Mauris venenatis, felis at tristique iaculis, enim dolor posuere
-          neque, non pulvinar metus arcu vel lectus. Vivamus fringilla sodales
-          felis non scelerisque. Sed ac elit lacinia, cursus mauris
-          pellentesque, iaculis quam. Proin at sem eu turpis varius lobortis.
-          Pellentesque sit amet purus mattis, ullamcorper massa elementum,
-          volutpat erat. Sed consequat ex est, quis tristique odio tempor ut.
-          Sed at molestie orci. Mauris vel quam vestibulum elit vestibulum
-          egestas ut at augue. Sed dictum convallis arcu.
-        </p>
-      </div>
-      <div class="contImagen">
-        <img class="img3" src="../assets/img/tecnica/tecnica1.jpg" alt="" />
-      </div>
-    </div>
-  </div>
-  <div class="separador"></div>
+    <div class="separador"></div>
+
+    <RouterLink class="routerlink" :to="getBackLink()">
+      <BotonVolverArticulo />
+    </RouterLink>
+  </main>
 </template>
 <style scoped>
+main {
+  min-height: 657px;
+  background: url("../assets/img/login/fondo.png") no-repeat center center;
+  background-size: cover;
+  object-fit: cover;
+  background-attachment: fixed;
+}
+.routerlink {
+  text-decoration: none;
+}
+
 #containerArticulos {
   display: grid;
   grid-template-columns: auto;
   width: 100%;
 }
+#containerTitulo {
+  height: 100px;
+  background-color: #2d3b57;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: #b0fc33;
+}
 
+#space {
+  width: 100%;
+  height: 10px;
+  background-color: white;
+}
 .contArticulo {
   height: auto;
   margin-bottom: 30px;

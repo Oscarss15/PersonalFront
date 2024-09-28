@@ -31,9 +31,9 @@ onMounted(fetchArticulos);
 <template>
   <main>
     <RouterLink
-      to="/articulos"
       v-for="articulo in articulos"
       :key="articulo.id"
+      :to="{ name: 'cuerpoArticulo', params: { id: articulo.id } }"
     >
       <div class="containerArticulo">
         <div class="imageWrapper">

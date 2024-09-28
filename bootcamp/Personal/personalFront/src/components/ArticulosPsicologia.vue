@@ -3,17 +3,6 @@ import { ref, onMounted } from "vue";
 
 const articulos = ref([]);
 
-// Imagen por defecto en caso de que no se proporcione una imagen para el artículo
-const defaultImgSrc = "../assets/img/psicologia/psicologia1.jpg";
-
-// Función para obtener la imagen del artículo o usar una predeterminada
-const getImageSrc = (imagen) => {
-  if (imagen) {
-    return `http://localhost:5000/${imagen}`;
-  }
-  return defaultImgSrc; // Imagen predeterminada
-};
-
 const fetchArticulos = async () => {
   try {
     const response = await fetch(
@@ -29,21 +18,29 @@ const fetchArticulos = async () => {
   }
 };
 
+const getImageSrc = (imagen) => {
+  if (imagen) {
+    return `http://localhost:5000/${imagen}`;
+  }
+  return "../assets/img/psicologia/psicologia1.jpg"; // imagen por defecto
+};
+
 onMounted(fetchArticulos);
 </script>
+
 <template>
   <main>
     <RouterLink
-      to="/articulos"
       v-for="articulo in articulos"
       :key="articulo.id"
+      :to="{ name: 'cuerpoArticulo', params: { id: articulo.id } }"
     >
       <div class="containerArticulo">
         <div class="imageWrapper">
           <img
             class="imgPsicologia"
             :src="getImageSrc(articulo.imagen1)"
-            alt="Imagen psicología"
+            alt="Imagen psicologia"
           />
           <div class="overlay">
             <p class="titulo">{{ articulo.titulo }}</p>

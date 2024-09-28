@@ -44,6 +44,12 @@ const router = createRouter({
       name: "adminArticulos",
       component: () => import("../views/AdminArticulosView.vue"),
     },
+    {
+      path: "/articulos/:id", // Ruta para CuerpoArticulo
+      name: "cuerpoArticulo",
+      component: () => import("../components/CuerpoArticulo.vue"),
+      props: true, // Permitir pasar el ID como prop
+    },
   ],
 });
 
