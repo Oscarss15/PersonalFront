@@ -6,9 +6,7 @@ import BotonAñadirArticulo from "@/components/BotonAñadirArticulo.vue";
 <template>
   <main>
     <TituloAdminArticulos></TituloAdminArticulos>
-    <div id="containerBoton">
-      <BotonAñadirArticulo></BotonAñadirArticulo>
-    </div>
+
     <div id="containerTabla">
       <TablaAdminArticulos></TablaAdminArticulos>
     </div>
@@ -22,18 +20,7 @@ main {
   object-fit: cover;
   background-attachment: fixed;
 }
-#containerTabla {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#containerBoton {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 @media (min-width: 481px) and (max-width: 1024px) {
   main {
     min-height: 1100px;

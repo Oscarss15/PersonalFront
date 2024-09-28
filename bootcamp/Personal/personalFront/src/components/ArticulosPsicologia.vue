@@ -1,29 +1,3 @@
-<template>
-  <main>
-    <RouterLink
-      to="/articulos"
-      v-for="articulo in articulos"
-      :key="articulo.id"
-    >
-      <div class="containerArticulo">
-        <div class="imageWrapper">
-          <img
-            class="imgPsicologia"
-            :src="getImageSrc(articulo.imagen1)"
-            alt="Imagen psicología"
-          />
-          <div class="overlay">
-            <p class="titulo">{{ articulo.titulo }}</p>
-            <p class="autor-fecha">
-              {{ articulo.autor }} - {{ articulo.fecha }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </RouterLink>
-  </main>
-</template>
-
 <script setup>
 import { ref, onMounted } from "vue";
 
@@ -57,6 +31,32 @@ const fetchArticulos = async () => {
 
 onMounted(fetchArticulos);
 </script>
+<template>
+  <main>
+    <RouterLink
+      to="/articulos"
+      v-for="articulo in articulos"
+      :key="articulo.id"
+    >
+      <div class="containerArticulo">
+        <div class="imageWrapper">
+          <img
+            class="imgPsicologia"
+            :src="getImageSrc(articulo.imagen1)"
+            alt="Imagen psicología"
+          />
+          <div class="overlay">
+            <p class="titulo">{{ articulo.titulo }}</p>
+            <p class="autor-fecha">
+              {{ articulo.autor }} - {{ articulo.fecha }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </RouterLink>
+  </main>
+</template>
+
 <style scoped>
 main {
   display: grid;
