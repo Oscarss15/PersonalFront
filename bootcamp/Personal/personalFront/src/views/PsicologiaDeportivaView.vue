@@ -1,9 +1,11 @@
 <script setup>
 import TituloPsicologia from "@/components/TituloPsicologia.vue";
 import ArticulosPsicologia from "@/components/ArticulosPsicologia.vue";
+import NavbarLogueado from "@/components/NavbarLogueado.vue";
 </script>
 
 <template>
+  <NavbarLogueado></NavbarLogueado>
   <main>
     <TituloPsicologia></TituloPsicologia>
     <ArticulosPsicologia></ArticulosPsicologia>

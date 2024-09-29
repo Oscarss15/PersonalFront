@@ -1,9 +1,10 @@
 <script setup>
 import TablaAdminArticulos from "@/components/TablaAdminArticulos.vue";
 import TituloAdminArticulos from "@/components/TituloAdminArticulos.vue";
-import BotonAñadirArticulo from "@/components/BotonAñadirArticulo.vue";
+import NavBarAdmin from "@/components/NavBarAdmin.vue";
 </script>
 <template>
+  <NavBarAdmin></NavBarAdmin>
   <main>
     <TituloAdminArticulos></TituloAdminArticulos>
 

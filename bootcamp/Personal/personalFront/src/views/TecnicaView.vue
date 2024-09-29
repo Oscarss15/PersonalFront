@@ -1,9 +1,11 @@
 <script setup>
 import TituloTecnica from "@/components/TituloTecnica.vue";
 import ArticulosTecnica from "@/components/ArticulosTecnica.vue";
+import NavbarLogueado from "@/components/NavbarLogueado.vue";
 </script>
 
 <template>
+  <NavbarLogueado></NavbarLogueado>
   <main>
     <TituloTecnica></TituloTecnica>
     <ArticulosTecnica></ArticulosTecnica>

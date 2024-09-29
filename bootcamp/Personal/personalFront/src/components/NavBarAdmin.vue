@@ -35,6 +35,12 @@ function closeMenu() {
       <RouterLink to="/psicologia" class="routerlink"
         ><li @click="closeMenu">Psicología</li></RouterLink
       >
+      <RouterLink to="/salas" class="routerlink"
+        ><li @click="closeMenu">Salas</li></RouterLink
+      >
+      <RouterLink to="/adminArticulos" class="routerlink"
+        ><li @click="closeMenu">Admin</li></RouterLink
+      >
     </ul>
   </div>
 </template>

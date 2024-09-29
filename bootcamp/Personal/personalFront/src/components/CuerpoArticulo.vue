@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import BotonVolverArticulo from "./BotonVolverArticulo.vue";
+import NavbarLogueado from "./NavbarLogueado.vue";
 
 const route = useRoute();
 const articulo = ref(null);
@@ -34,6 +35,7 @@ const getBackLink = () => {
 onMounted(fetchArticulo);
 </script>
 <template>
+  <NavbarLogueado></NavbarLogueado>
   <main>
     <div id="space"></div>
     <div id="containerTitulo">

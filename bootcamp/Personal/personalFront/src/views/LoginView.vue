@@ -2,9 +2,11 @@
 import TitleLogin from "@/components/TitleLogin.vue";
 import TitleSecondaryLogin from "@/components/TitleSecondaryLogin.vue";
 import Login from "@/components/Login.vue";
+import Navbar from "@/components/Navbar.vue";
 </script>
 
 <template>
+  <Navbar></Navbar>
   <main>
     <div id="contTitleLogin">
       <div id="contTitle">

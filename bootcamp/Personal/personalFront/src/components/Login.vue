@@ -1,4 +1,5 @@
 <script setup></script>
+
 <template>
   <div class="row full-height justify-content-center" id="contlogin">
     <div class="col-12 text-center align-self-center py-5">

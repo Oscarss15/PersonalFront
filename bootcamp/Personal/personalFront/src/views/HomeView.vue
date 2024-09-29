@@ -1,9 +1,11 @@
 <script setup>
 import TituloHome from "@/components/TituloHome.vue";
 import CardsHome from "@/components/CardsHome.vue";
+import NavbarLogueado from "@/components/NavbarLogueado.vue";
 </script>
 
 <template>
+  <NavbarLogueado></NavbarLogueado>
   <main>
     <TituloHome></TituloHome>
     <CardsHome></CardsHome>
