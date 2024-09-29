@@ -14,7 +14,9 @@ import { ref, onMounted } from "vue";
           />
           <div class="overlay">
             <p class="titulo">SALAS</p>
-            <p class="autor-fecha">Encuentra a tus compañeros de padel</p>
+            <p class="autor-fecha">
+              Tu próximo desafío está a una sala de distancia
+            </p>
           </div>
         </div>
       </div>
@@ -41,7 +43,7 @@ import { ref, onMounted } from "vue";
         <div class="imageWrapper">
           <img
             class="imgTecnica"
-            src="../assets/img/home/psicologia.jpeg"
+            src="../assets/img/home/psicologia.jpg"
             alt="Imagen técnica 1"
           />
           <div class="overlay">
@@ -82,7 +84,7 @@ main {
   width: 100%;
   object-fit: cover;
   opacity: 0.6;
-  filter: grayscale(100%);
+  filter: grayscale(20%);
   transition: 1000ms;
 }
 
@@ -96,7 +98,7 @@ main {
   padding: 10px 0;
   height: 80px;
   opacity: 1;
-  transition: height 0.5s ease, bottom 0.5s ease;
+  transition: height 1s ease, bottom 0.5s ease;
 }
 
 .imageWrapper:hover .overlay {
@@ -149,7 +151,7 @@ main {
     font-size: 10px;
   }
   .imageWrapper:hover .overlay {
-    height: 70;
+    height: 70px;
   }
 }
 

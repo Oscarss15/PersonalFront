@@ -41,7 +41,7 @@
       © 2024 Copyright:
       <a
         class="linkProyecto"
-        href="https://github.com/FactoriaF5-FactZoopia/Sonar-Events-FrontEnd.git"
+        href="https://github.com/Oscarss15/PersonalFront"
         target="_blank"
         >PadelMatch</a
       >
@@ -53,6 +53,7 @@
 footer {
   box-shadow: 0 -10px 15px #b0fc33;
   z-index: 1000;
+  margin-top: 30px;
 }
 
 button {
@@ -106,10 +107,18 @@ button,
 button:hover {
   cursor: url("../assets/img/cursor/cursorPadel.cur"), pointer;
 }
-@media (max-width: 600px) {
+@media (min-width: 481px) and (max-width: 1024px) {
+  footer {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 481px) {
   button {
     width: 60px;
     height: 60px;
+  }
+  footer {
+    margin-top: 30px;
   }
 }
 </style>

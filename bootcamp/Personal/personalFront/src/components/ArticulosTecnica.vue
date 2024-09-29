@@ -81,8 +81,8 @@ main {
   height: 298px;
   width: 100%;
   object-fit: cover;
-  opacity: 0.6;
-  filter: grayscale(100%);
+  opacity: 0.8;
+  filter: grayscale(30%);
   transition: 1000ms;
 }
 
@@ -96,7 +96,7 @@ main {
   padding: 10px 0;
   height: 40px;
   opacity: 1;
-  transition: height 0.5s ease, bottom 0.5s ease;
+  transition: height 1s ease, bottom 0.5s ease;
 }
 
 .imageWrapper:hover .overlay {
