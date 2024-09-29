@@ -1,8 +1,8 @@
 <script setup>
-import TitleLogin from "@/components/TitleLogin.vue";
-import TitleSecondaryLogin from "@/components/TitleSecondaryLogin.vue";
-import Login from "@/components/Login.vue";
-import Navbar from "@/components/Navbar.vue";
+import TitleLogin from "@/components/compLogin/TitleLogin.vue";
+import TitleSecondaryLogin from "@/components/compLogin/TitleSecondaryLogin.vue";
+import Login from "@/components/compLogin/Login.vue";
+import Navbar from "@/components/Navbars/Navbar.vue";
 </script>
 
 <template>

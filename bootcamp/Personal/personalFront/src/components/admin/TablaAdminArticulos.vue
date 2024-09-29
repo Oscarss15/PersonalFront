@@ -279,7 +279,7 @@ onMounted(() => {
             <td>
               <img
                 class="img"
-                src="../assets/img/admin/editarArticulo.png"
+                src="../../assets/img/admin/editarArticulo.png"
                 alt="Editar"
                 @click="openEditModal(articulo)"
               />
@@ -287,7 +287,7 @@ onMounted(() => {
             <td>
               <img
                 class="img"
-                src="../assets/img/admin/eliminarArticulo.png"
+                src="../../assets/img/admin/eliminarArticulo.png"
                 alt="Eliminar"
                 @click="deleteArticulo(articulo.id)"
               />

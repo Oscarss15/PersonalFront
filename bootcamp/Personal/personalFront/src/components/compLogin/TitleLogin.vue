@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <h2>PADEL</h2>
-  <img id="ballPadel" src="../assets/img/navbar/ballPadel2.png" alt="" />
+  <img id="ballPadel" src="../../assets/img/navbar/ballPadel2.png" alt="" />
   <h2>MATCH</h2>
 </template>
 <style scoped>

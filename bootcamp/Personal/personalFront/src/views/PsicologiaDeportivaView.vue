@@ -1,7 +1,7 @@
 <script setup>
-import TituloPsicologia from "@/components/TituloPsicologia.vue";
-import ArticulosPsicologia from "@/components/ArticulosPsicologia.vue";
-import NavbarLogueado from "@/components/NavbarLogueado.vue";
+import TituloPsicologia from "@/components/compPsicologia/TituloPsicologia.vue";
+import ArticulosPsicologia from "@/components/compPsicologia/ArticulosPsicologia.vue";
+import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
 </script>
 
 <template>

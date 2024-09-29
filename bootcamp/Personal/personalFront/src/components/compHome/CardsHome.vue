@@ -9,7 +9,7 @@ import { ref, onMounted } from "vue";
         <div class="imageWrapper">
           <img
             class="imgTecnica"
-            src="../assets/img/home/salas.jpg"
+            src="../../assets/img/home/salas.jpg"
             alt="Imagen técnica 1"
           />
           <div class="overlay">
@@ -26,7 +26,7 @@ import { ref, onMounted } from "vue";
         <div class="imageWrapper">
           <img
             class="imgTecnica"
-            src="../assets/img/home/tecnica.jpg"
+            src="../../assets/img/home/tecnica.jpg"
             alt="Imagen técnica 1"
           />
           <div class="overlay">
@@ -43,7 +43,7 @@ import { ref, onMounted } from "vue";
         <div class="imageWrapper">
           <img
             class="imgTecnica"
-            src="../assets/img/home/psicologia.jpg"
+            src="../../assets/img/home/psicologia.jpg"
             alt="Imagen técnica 1"
           />
           <div class="overlay">

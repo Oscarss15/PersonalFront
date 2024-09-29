@@ -21,7 +21,7 @@ function closeMenu() {
 
   <input type="checkbox" id="active" ref="checkbox" />
   <label for="active" class="menu-btn">
-    <img id="ballNav" src="../assets/img/navbar/pelotaNav.png" alt="" />
+    <img id="ballNav" src="../../assets/img/navbar/pelotaNav.png" alt="" />
   </label>
 
   <div class="wrapper">

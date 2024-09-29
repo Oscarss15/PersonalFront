@@ -1,7 +1,7 @@
 <script setup>
-import TituloArticulo from "@/components/TituloArticulo.vue";
-import CuerpoArticulo from "@/components/CuerpoArticulo.vue";
-import BotonVolverArticulo from "@/components/BotonVolverArticulo.vue";
+import TituloArticulo from "@/components/compArticulo/TituloArticulo.vue";
+import CuerpoArticulo from "@/components/compArticulo/CuerpoArticulo.vue";
+import BotonVolverArticulo from "@/components/compArticulo/BotonVolverArticulo.vue";
 </script>
 
 <template>

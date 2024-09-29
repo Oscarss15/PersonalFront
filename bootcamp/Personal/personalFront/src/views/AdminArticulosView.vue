@@ -1,7 +1,7 @@
 <script setup>
-import TablaAdminArticulos from "@/components/TablaAdminArticulos.vue";
-import TituloAdminArticulos from "@/components/TituloAdminArticulos.vue";
-import NavBarAdmin from "@/components/NavBarAdmin.vue";
+import TablaAdminArticulos from "@/components/admin/TablaAdminArticulos.vue";
+import TituloAdminArticulos from "@/components/admin/TituloAdminArticulos.vue";
+import NavBarAdmin from "@/components/Navbars/NavBarAdmin.vue";
 </script>
 <template>
   <NavBarAdmin></NavBarAdmin>

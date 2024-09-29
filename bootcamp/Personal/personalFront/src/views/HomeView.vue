@@ -1,7 +1,7 @@
 <script setup>
-import TituloHome from "@/components/TituloHome.vue";
-import CardsHome from "@/components/CardsHome.vue";
-import NavbarLogueado from "@/components/NavbarLogueado.vue";
+import TituloHome from "@/components/compHome/TituloHome.vue";
+import CardsHome from "@/components/compHome/CardsHome.vue";
+import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
 </script>
 
 <template>

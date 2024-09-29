@@ -1,7 +1,7 @@
 <script setup>
-import TituloTecnica from "@/components/TituloTecnica.vue";
-import ArticulosTecnica from "@/components/ArticulosTecnica.vue";
-import NavbarLogueado from "@/components/NavbarLogueado.vue";
+import TituloTecnica from "@/components/compTecnica/TItuloTecnica.vue";
+import ArticulosTecnica from "@/components/compTecnica/ArticulosTecnica.vue";
+import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
 </script>
 
 <template>

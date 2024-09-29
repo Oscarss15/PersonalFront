@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import BotonVolverArticulo from "./BotonVolverArticulo.vue";
-import NavbarLogueado from "./NavbarLogueado.vue";
+import NavbarLogueado from "../Navbars/NavbarLogueado.vue";
 
 const route = useRoute();
 const articulo = ref(null);

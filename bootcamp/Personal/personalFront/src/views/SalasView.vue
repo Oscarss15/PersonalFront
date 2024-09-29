@@ -1,5 +1,5 @@
 <script setup>
-import NavbarLogueado from "@/components/NavbarLogueado.vue";
+import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
 </script>
 
 <template>

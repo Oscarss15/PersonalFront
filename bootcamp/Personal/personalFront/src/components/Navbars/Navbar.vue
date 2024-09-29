@@ -21,7 +21,7 @@ function closeMenu() {
 
   <input type="checkbox" id="active" ref="checkbox" />
   <label for="active" class="menu-btn">
-    <img id="ballNav" src="../assets/img/navbar/pelotaNav.png" alt="" />
+    <img id="ballNav" src="../../assets/img/navbar/pelotaNav.png" alt="" />
   </label>
 
   <div class="wrapper">
@@ -34,9 +34,6 @@ function closeMenu() {
       >
       <RouterLink to="/psicologia" class="routerlink"
         ><li @click="closeMenu">Psicología</li></RouterLink
-      >
-      <RouterLink to="/salas" class="routerlink"
-        ><li @click="closeMenu">Salas</li></RouterLink
       >
     </ul>
   </div>
