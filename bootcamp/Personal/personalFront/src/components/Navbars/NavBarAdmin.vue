@@ -13,7 +13,19 @@ function closeMenu() {
 <template>
   <div id="menu">
     <div id="containerLogo">
-      <h1 class="titulo">PM</h1>
+      <!-- <h1 class="titulo">PM</h1> -->
+      <ul class="ul">
+        <li class="li">P</li>
+        <li class="li" id="letras">a</li>
+        <li class="li" id="letras">d</li>
+        <li class="li" id="letras">e</li>
+        <li class="li" id="letras">l</li>
+        <li class="li">M</li>
+        <li class="li" id="letras">a</li>
+        <li class="li" id="letras">t</li>
+        <li class="li" id="letras">c</li>
+        <li class="li" id="letras">h</li>
+      </ul>
 
       <div id="TitleNav"><label></label></div>
     </div>
@@ -188,6 +200,87 @@ input[type="checkbox"] {
     transform: rotate(360deg);
   }
 }
+.ul {
+  display: flex;
+}
+.li {
+  list-style: none;
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: 0.1vw;
+  margin-left: 20px;
+  color: #b0fc33;
+  text-shadow: none;
+  animation: anim 8s infinite linear;
+}
+@keyframes anim {
+  0% {
+    color: #b0fc33;
+    text-shadow: none;
+  }
+  18% {
+    color: #b0fc33;
+    text-shadow: none;
+  }
+  20% {
+    color: #2d3b57;
+    text-shadow: 0 0 0.5vw white, 0 0 3vw #b0fc33;
+  }
+  30% {
+    color: #b0fc33;
+    text-shadow: none;
+  }
+  35% {
+    color: #2d3b57;
+    text-shadow: 0 0 0.5vw white, 0 0 3vw #b0fc33;
+  }
+  70% {
+    color: #b0fc33;
+    text-shadow: none;
+  }
+  85% {
+    color: #2d3b57;
+    text-shadow: 0 0 0.5vw white, 0 0 3vw #b0fc33;
+  }
+  90% {
+    color: #b0fc33;
+    text-shadow: none;
+  }
+  100% {
+    color: #b0fc33;
+    text-shadow: none;
+  }
+}
+.li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.li:nth-child(5) {
+  animation-delay: 0.1s;
+}
+.li:nth-child(6) {
+  animation-delay: 1s;
+}
+.li:nth-child(7) {
+  animation-delay: 1.2s;
+}
+.li:nth-child(8) {
+  animation-delay: 1.4s;
+}
+.li:nth-child(9) {
+  animation-delay: 1.6s;
+}
+.li:nth-child(10) {
+  animation-delay: 1.8s;
+}
 @media (max-width: 1024px) and (min-width: 481px) {
   .wrapper ul li {
     width: 350px;
@@ -196,6 +289,13 @@ input[type="checkbox"] {
 @media (max-width: 480px) {
   .wrapper ul li {
     width: 250px;
+  }
+  .li {
+    font-size: 45px;
+    letter-spacing: -15px;
+  }
+  #letras {
+    display: none;
   }
 }
 </style>
