@@ -25,6 +25,14 @@ const getImageSrc = (imagen) => {
   return "../assets/img/tecnica/tecnica1.jpg"; // imagen por defecto
 };
 
+const formatDate = (fechaArray) => {
+  if (Array.isArray(fechaArray) && fechaArray.length === 3) {
+    const [year, month, day] = fechaArray;
+    return `${day}/${month}/${year}`; // Cambia el formato según tus necesidades
+  }
+  return ""; // Retorna un string vacío si la fecha no es válida
+};
+
 onMounted(fetchArticulos);
 </script>
 
@@ -45,7 +53,7 @@ onMounted(fetchArticulos);
           <div class="overlay">
             <p class="titulo">{{ articulo.titulo }}</p>
             <p class="autor-fecha">
-              {{ articulo.autor }} - {{ articulo.fecha }}
+              {{ articulo.autor }} - {{ formatDate(articulo.fecha) }}
             </p>
           </div>
         </div>

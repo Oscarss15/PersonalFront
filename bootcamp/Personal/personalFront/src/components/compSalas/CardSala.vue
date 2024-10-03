@@ -122,10 +122,7 @@ main {
   transition: 1s;
   position: relative;
 }
-.containerCard:hover {
-  transform: scale(1.05);
-  transition: 1s;
-}
+
 .containerCiudad {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
