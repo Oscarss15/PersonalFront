@@ -82,7 +82,6 @@ button:hover i {
   background-color: #b0fc33;
   box-shadow: 0 0 15px #b0fc33;
   border: 2px solid #b0fc33;
-  transform: rotateY(360deg);
 }
 
 #btnws,
