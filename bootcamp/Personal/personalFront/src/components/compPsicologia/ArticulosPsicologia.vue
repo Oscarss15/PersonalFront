@@ -20,7 +20,7 @@ const fetchArticulos = async () => {
 
 const getImageSrc = (imagen) => {
   if (imagen) {
-    return `http://localhost:5000/${imagen}`;
+    return `http://localhost:8080/upload/${imagen}`;
   }
   return "../assets/img/psicologia/psicologia1.jpg"; // imagen por defecto
 };

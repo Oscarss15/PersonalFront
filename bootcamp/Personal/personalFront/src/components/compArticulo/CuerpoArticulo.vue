@@ -23,7 +23,7 @@ const fetchArticulo = async () => {
 
 const getImageSrc = (imagen) => {
   if (imagen) {
-    return `http://localhost:5000/${imagen}`;
+    return `http://localhost:8080/upload/${imagen}`;
   }
   return "../assets/img/tecnica/tecnica1.jpg"; // imagen por defecto
 };
@@ -91,7 +91,7 @@ onMounted(fetchArticulo);
 <style scoped>
 main {
   min-height: 657px;
-  background: url("../assets/img/login/fondo.png") no-repeat center center;
+  background: url("../../assets/img/login/fondo.png") no-repeat center center;
   background-size: cover;
   object-fit: cover;
   background-attachment: fixed;

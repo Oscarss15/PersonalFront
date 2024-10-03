@@ -20,7 +20,7 @@ const fetchArticulos = async () => {
 
 const getImageSrc = (imagen) => {
   if (imagen) {
-    return `http://localhost:5000/${imagen}`;
+    return `http://localhost:8080/upload/${imagen}`;
   }
   return "../assets/img/tecnica/tecnica1.jpg"; // imagen por defecto
 };
@@ -128,15 +128,14 @@ main {
 }
 @media (min-width: 481px) and (max-width: 1024px) {
   main {
-    grid-template-columns: 1fr 1fr; /* 1 columna en pantallas más pequeñas */
+    grid-template-columns: 1fr 1fr;
     min-height: 800px;
-    background-color: red;
   }
 }
-/* Media queries para diseño responsivo */
+
 @media (max-width: 480px) {
   main {
-    grid-template-columns: 1fr; /* 1 columna en pantallas más pequeñas */
+    grid-template-columns: 1fr;
   }
   .containerArticulo {
     padding: 20px;
