@@ -263,7 +263,7 @@ main {
   align-items: center;
 }
 .Persona {
-  width: 70%;
+  width: 30%;
 }
 .contPersona2,
 .contPersona4 {
@@ -289,10 +289,6 @@ main {
 
   .containerCard {
     width: 95%;
-  }
-  .containerCard:hover {
-    transform: scale(1.02);
-    transition: 1s;
   }
 }
 @media (max-width: 480px) {

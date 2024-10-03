@@ -1,12 +1,17 @@
+vue Copiar código
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
 import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
 import TituloSalas from "@/components/compSalas/TituloSalas.vue";
 import BotonAñadirSala from "@/components/compSalas/BotonAñadirSala.vue";
 import CardSala from "@/components/compSalas/CardSala.vue";
+import BusquedaPorVoz from "@/components/compSalas/BusquedaPorVoz.vue";
 
 // Estado para las salas
 const salas = ref([]);
+
+// Estado para la búsqueda
+const searchQuery = ref("");
 
 // Función para obtener todas las salas desde la API
 const fetchSalas = async () => {
@@ -49,25 +54,59 @@ const addSala = async (newSala) => {
     console.error("Error adding sala:", error);
   }
 };
+
+// Función para formatear la fecha de la sala para el filtro
+const formatDateForFilter = (dateString) => {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+};
+
+// Computed property para filtrar las salas según el texto de búsqueda
+const filteredSalas = computed(() => {
+  if (!searchQuery.value) {
+    return salas.value; // Si no hay búsqueda, mostramos todas las salas
+  }
+
+  return salas.value.filter((sala) => {
+    const ciudadMatch = sala.ciudad
+      .toLowerCase()
+      .includes(searchQuery.value.toLowerCase());
+    const lugarMatch = sala.lugar
+      .toLowerCase()
+      .includes(searchQuery.value.toLowerCase());
+    const fechaMatch = formatDateForFilter(sala.fecha)
+      .toLowerCase()
+      .includes(searchQuery.value.toLowerCase());
+
+    return ciudadMatch || lugarMatch || fechaMatch;
+  });
+});
 </script>
 
 <template>
   <NavbarLogueado />
 
-  <main>
+  <main :class="{ 'no-results': filteredSalas.length === 0 }">
     <TituloSalas />
 
-    <!-- Botón para añadir sala, pasando la función addSala para que la use -->
     <BotonAñadirSala @sala-added="addSala" />
 
-    <!-- Renderizado dinámico de las tarjetas de salas -->
+    <div class="busqueda">
+      <BusquedaPorVoz v-model:searchQuery="searchQuery" />
+    </div>
 
     <CardSala
       class="cardSala"
-      v-for="sala in salas"
+      v-for="sala in filteredSalas"
       :key="sala.id"
       :sala="sala"
     />
+
+    <div class="mostrarInfo">
+      <p v-if="filteredSalas.length === 0" class="no-results-message">
+        No se encontraron salas para la búsqueda.
+      </p>
+    </div>
   </main>
 </template>
 
@@ -79,11 +118,59 @@ main {
   object-fit: cover;
   background-attachment: fixed;
 }
-.cardSala {
+main.no-results {
+  min-height: 627px;
 }
+.mostrarInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: #2d3b57;
+}
+
+.busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar {
+  padding: 10px;
+  width: 80%;
+  background-color: #2d3b57;
+  border: 2px solid white;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.search-bar:focus {
+  background-color: #b0fc33;
+}
+.search-bar::placeholder {
+  color: white;
+}
+
+.search-bar:focus::placeholder {
+  color: #2d3b57;
+}
+
 @media (min-width: 481px) and (max-width: 1024px) {
   main {
     min-height: 400px;
+  }
+  main.no-results {
+    min-height: 1040px;
+  }
+}
+@media (max-width: 480px) {
+  .mostrarInfo {
+    font-size: 15px;
+  }
+  .search-bar {
+    width: 90%;
+  }
+  .search-bar::placeholder {
+    font-size: 18px;
   }
 }
 </style>
