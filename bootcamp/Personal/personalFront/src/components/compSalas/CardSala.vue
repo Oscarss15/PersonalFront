@@ -23,6 +23,14 @@ const formatTime = (timeArray) => {
   const formattedMinutes = String(minutes).padStart(2, "0");
   return `${formattedHours}:${formattedMinutes}`;
 };
+
+// Función para verificar si la fecha de la sala es anterior a la fecha actual
+const isDateInPast = (dateString) => {
+  const today = new Date(); // Obtener la fecha actual
+  const salaDate = new Date(dateString); // Convertir la fecha de la sala a un objeto de fecha
+  return salaDate < today; // Devolver true si la fecha de la sala es anterior a la fecha actual
+};
+
 // Función para manejar la visualización de detalles (puedes implementarla según tus necesidades)
 const viewDetails = (id) => {
   // Lógica para ver detalles de la sala
@@ -31,7 +39,8 @@ const viewDetails = (id) => {
 };
 </script>
 <template>
-  <main>
+  <!-- Renderizar la card solo si la fecha de la sala no es anterior a la actual -->
+  <main v-if="!isDateInPast(sala.fecha)">
     <div class="containerCard">
       <div class="containerCiudad">{{ sala.ciudad }}</div>
       <div class="containerLugar">{{ sala.lugar }}</div>
