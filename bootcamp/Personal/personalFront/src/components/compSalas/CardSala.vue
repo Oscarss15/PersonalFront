@@ -290,6 +290,10 @@ main {
   .containerCard {
     width: 95%;
   }
+
+  .Persona {
+    width: 50%;
+  }
 }
 @media (max-width: 480px) {
   .containerCards {
@@ -307,6 +311,13 @@ main {
   .contPersona2,
   .contPersona3,
   .contPersona4 {
+    font-size: 10px;
+  }
+  .containerFecha {
+    font-size: 10px;
+  }
+  .containerDia,
+  .containerHora {
     font-size: 10px;
   }
 }

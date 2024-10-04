@@ -48,20 +48,23 @@ const startRecognition = () => {
   };
 };
 
-// Funciones para cambiar el idioma
+// Funciones para cambiar el idioma y comenzar el reconocimiento
 const setLanguageToSpanish = () => {
   recognitionLang.value = "es-ES"; // Cambia el idioma a español
   placeholderText.value = placeholders["es-ES"]; // Cambia el placeholder
+  startRecognition(); // Inicia el reconocimiento de voz en español
 };
 
 const setLanguageToFrench = () => {
   recognitionLang.value = "fr-FR"; // Cambia el idioma a francés
   placeholderText.value = placeholders["fr-FR"]; // Cambia el placeholder
+  startRecognition(); // Inicia el reconocimiento de voz en francés
 };
 
 const setLanguageToEnglish = () => {
   recognitionLang.value = "en-US"; // Cambia el idioma a inglés
   placeholderText.value = placeholders["en-US"]; // Cambia el placeholder
+  startRecognition(); // Inicia el reconocimiento de voz en inglés
 };
 
 // Función para emitir el valor actualizado de searchQuery
@@ -77,25 +80,32 @@ const updateSearchQuery = () => {
       v-model="searchQuery"
       :placeholder="placeholderText"
       class="search-bar"
-      @focus="startRecognition"
       @input="updateSearchQuery"
     />
     <button @click="setLanguageToSpanish" class="voz-buttonPais">
-      <img src="../../assets/img/banderas/espana.png" alt="Español" />
+      <img
+        class="bandera"
+        src="../../assets/img/banderas/espana.png"
+        alt="Español"
+      />
     </button>
     <button @click="setLanguageToFrench" class="voz-buttonPais">
-      <img src="../../assets/img/banderas/francia.png" alt="Francés" />
+      <img
+        class="bandera"
+        src="../../assets/img/banderas/francia.png"
+        alt="Francés"
+      />
     </button>
     <button @click="setLanguageToEnglish" class="voz-buttonPais">
-      <img src="../../assets/img/banderas/reinoUnido.png" alt="Inglés" />
+      <img
+        class="bandera"
+        src="../../assets/img/banderas/reinoUnido.png"
+        alt="Inglés"
+      />
     </button>
-    <button
-      @click="startRecognition"
-      class="voz-button"
-      :class="{ active: isRecognizing }"
-    >
-      🎙️
-    </button>
+
+    <!-- El botón de micrófono ya no activa el reconocimiento de voz -->
+    <button class="voz-button" :class="{ active: isRecognizing }">🎙️</button>
   </div>
 </template>
 
@@ -158,5 +168,13 @@ const updateSearchQuery = () => {
 
 .voz-buttonPais:hover {
   background-color: white;
+}
+@media (max-width: 480px) {
+  .search-bar {
+    font-size: 15px;
+  }
+  .bandera {
+    width: 20px;
+  }
 }
 </style>
