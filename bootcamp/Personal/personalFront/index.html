@@ -5,6 +5,8 @@
     <link rel="icon" href="/src/assets/img/navbar/ballPadel.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Padel Match</title>
+
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,16 +24,136 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
     />
+
+    <!-- jQuery and Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+      /* Estilos para la pantalla de carga */
+      #loading {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        z-index: 9999;
+        font-size: 24px;
+        text-align: center;
+        opacity: 0.9;
+      }
+
+      /* Animación para rotar la imagen */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Aplicar la animación de rotación a la imagen */
+      #loading img {
+        width: 100px; /* Tamaño de la imagen */
+        animation: spin 2s linear infinite; /* Animación de giro */
+      }
+
+      /* Ocultar el loading cuando la aplicación se ha cargado */
+      #loading.hide {
+        display: none;
+      }
+
+      /* Estilo para el texto debajo de la imagen */
+      .loading-text {
+        margin-top: 30px;
+        font-size: 25px;
+        color: #b0fc33;
+      }
+
+      .loading-text.hide {
+        display: none; /* Ocultar elementos con la clase hide */
+      }
+    </style>
   </head>
   <body>
+    <!-- Pantalla de carga -->
+    <div id="loading">
+      <img src="/src/assets/img/navbar/pelotaNav.png" alt="Pelota girando" />
+      <p class="loading-text">Cargando...</p>
+      <p class="loading-text hide">Loading...</p>
+      <p class="loading-text hide">Chargement...</p>
+    </div>
+
+    <!-- El contenedor principal de la aplicación Vue -->
     <div id="app"></div>
+
+    <!-- Vue App -->
     <script type="module" src="/src/main.js"></script>
+
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      // Función para mostrar los textos uno tras otro
+      function showLoadingTexts(duration) {
+        const texts = document.querySelectorAll(".loading-text");
+        let currentIndex = 0;
+
+        // Función para mostrar el siguiente texto
+        const showNextText = () => {
+          // Ocultar el texto actual
+          texts[currentIndex].classList.add("hide");
+
+          // Incrementar el índice
+          currentIndex++;
+
+          // Si llegamos al final de los textos, reiniciar
+          if (currentIndex >= texts.length) {
+            currentIndex = 0; // Reiniciar al primer texto
+          }
+
+          // Mostrar el siguiente texto
+          texts[currentIndex].classList.remove("hide");
+
+          // Programar la siguiente llamada después del tiempo especificado
+          setTimeout(showNextText, duration); // Tiempo de duración de cada texto
+        };
+
+        // Iniciar mostrando el primer texto
+        showNextText();
+      }
+
+      // Iniciar la función al cargar la página
+      window.addEventListener("load", function () {
+        const loadingElement = document.getElementById("loading");
+
+        // Mostrar la pantalla de carga
+        loadingElement.classList.remove("hide");
+
+        // Duración de la pantalla de carga (en ms)
+        const loadingDuration = 3000; // Cambia esto si necesitas ajustar el tiempo total de carga
+
+        // Duración de cada texto (en ms)
+        const textDuration = loadingDuration / 6; // Total de 3 textos, aproximadamente 533 ms cada uno
+
+        // Iniciar el ciclo de textos de carga
+        showLoadingTexts(textDuration);
+
+        // Ocultar el loading después de la duración total
+        setTimeout(() => {
+          loadingElement.classList.add("hide");
+        }, loadingDuration);
+      });
+    </script>
   </body>
 </html>
