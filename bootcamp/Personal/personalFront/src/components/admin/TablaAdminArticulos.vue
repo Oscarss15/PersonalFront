@@ -1,8 +1,77 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 
 // Estado de los artículos
 const articulos = ref([]);
+
+// Estado del query de búsqueda
+const searchQuery = ref("");
+
+// Variables para el reconocimiento de voz
+const recognitionLang = ref("es-ES"); // Idioma predeterminado
+const isRecognizing = ref(false);
+const placeholders = {
+  "es-ES": "Buscar por título, autor, tipo o utiliza el micrófono",
+  "en-US": "Search by title, author, type or use the microphone",
+};
+const placeholderText = ref(placeholders[recognitionLang.value]);
+
+// Función para iniciar el reconocimiento de voz
+const startRecognition = () => {
+  if (!("webkitSpeechRecognition" in window)) {
+    alert(
+      "Lo siento, tu navegador no soporta la API de reconocimiento de voz."
+    );
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = recognitionLang.value;
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  isRecognizing.value = true;
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    searchQuery.value = transcript;
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Error en reconocimiento de voz: ", event.error);
+  };
+
+  recognition.onend = () => {
+    isRecognizing.value = false;
+  };
+};
+
+// Funciones para cambiar el idioma y actualizar el placeholder
+const setLanguageToSpanish = () => {
+  recognitionLang.value = "es-ES";
+  placeholderText.value = placeholders["es-ES"];
+  startRecognition();
+};
+
+const setLanguageToEnglish = () => {
+  recognitionLang.value = "en-US";
+  placeholderText.value = placeholders["en-US"];
+  startRecognition();
+};
+
+// Filtrar artículos basado en la búsqueda
+const filteredArticulos = computed(() => {
+  return articulos.value.filter((articulo) => {
+    const query = searchQuery.value.toLowerCase();
+    return (
+      articulo.titulo.toLowerCase().includes(query) ||
+      articulo.autor.toLowerCase().includes(query) ||
+      articulo.tipo.toLowerCase().includes(query) ||
+      articulo.id.toString().includes(query) //
+    );
+  });
+});
 
 // Estado del modal de información
 const showModal = ref(false);
@@ -51,7 +120,6 @@ const closeEditModal = () => {
     imagen3: null,
   };
 };
-
 // Función para añadir un nuevo artículo
 const addArticulo = async () => {
   const formData = new FormData();
@@ -96,7 +164,7 @@ const addArticulo = async () => {
   }
 };
 
-// Función para obtener los artículos desde una API (simulada)
+// Función para obtener los artículos desde la API
 const fetchArticulos = async () => {
   try {
     const response = await fetch(
@@ -171,8 +239,8 @@ onMounted(() => {
           <div>
             <label for="tipo">Tipo</label>
             <select v-model="nuevoArticulo.tipo" id="tipo" required>
-              <option value="tecnica">Técnica</option>
-              <option value="psicologia">Psicología</option>
+              <option value="técnica">Técnica</option>
+              <option value="psicología">Psicología</option>
             </select>
           </div>
           <div>
@@ -231,6 +299,27 @@ onMounted(() => {
       </div>
     </div>
   </div>
+
+  <div id="containerBusqueda">
+    <!-- Buscador de texto y voz -->
+    <div class="buscador-combinado">
+      <input
+        type="text"
+        v-model="searchQuery"
+        :placeholder="placeholderText"
+        class="search-bar"
+      />
+
+      <button
+        @click="startRecognition"
+        class="voz-button"
+        :class="{ active: isRecognizing }"
+      >
+        🎙️
+      </button>
+    </div>
+  </div>
+
   <div id="containerTabla">
     <div class="table-responsive">
       <table class="table table-striped custom-table-dark">
@@ -252,7 +341,7 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="articulo in articulos" :key="articulo.id">
+          <tr v-for="articulo in filteredArticulos" :key="articulo.id">
             <th scope="row">{{ articulo.id }}</th>
             <td>{{ articulo.titulo }}</td>
             <td>{{ articulo.autor }}</td>
@@ -303,12 +392,77 @@ onMounted(() => {
     <div class="modal-content" @click.stop>
       <h2>Información</h2>
       <p>{{ modalContent }}</p>
-      <button @click="closeModal">Cerrar</button>
+      <button class="cerrar" @click="closeModal">Cerrar</button>
     </div>
   </div>
 </template>
 
 <style scoped>
+#containerBusqueda {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buscador-combinado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  background-color: #2d3b57;
+  border: 3px solid white;
+  border-radius: 25px;
+}
+
+.search-bar {
+  padding: 10px;
+  width: 100%;
+  background-color: #2d3b57;
+  border: none;
+  border-radius: 25px;
+  font-size: 20px;
+  color: white;
+}
+.search-bar::placeholder {
+  color: #c1c1c1;
+}
+.search-bar:focus {
+  outline: none; /* Elimina el contorno cuando está enfocado */
+  box-shadow: none; /* Elimina cualquier sombra si existe */
+}
+
+.voz-button {
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #2d3b57;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+.voz-button:hover {
+  padding: 10px;
+}
+
+.voz-buttonPais {
+  margin-left: 10px;
+  padding: 5px;
+  background-color: #2d3b57;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+
+.voz-buttonPais:hover {
+  background-color: white;
+}
+.voz-button.active {
+  background-color: white; /* Indicador visual cuando el reconocimiento está activo */
+}
 #containerAñadirArticulo {
   width: 100%;
   height: 150px;
@@ -720,5 +874,14 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.voz-buttonPais:hover {
+  background-color: white;
+}
+@media (max-width: 480px) {
+  .search-bar {
+    font-size: 10px;
+  }
 }
 </style>
