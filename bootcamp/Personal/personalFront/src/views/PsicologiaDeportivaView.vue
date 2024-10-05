@@ -2,6 +2,7 @@
 import TituloPsicologia from "@/components/compPsicologia/TituloPsicologia.vue";
 import ArticulosPsicologia from "@/components/compPsicologia/ArticulosPsicologia.vue";
 import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
+import ColoresApp from "@/components/esquemaColores/ColoresApp.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
   <main>
     <TituloPsicologia></TituloPsicologia>
     <ArticulosPsicologia></ArticulosPsicologia>
+    <ColoresApp></ColoresApp>
   </main>
 </template>
 <style scoped>

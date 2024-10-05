@@ -2,6 +2,7 @@
 import TituloAdminArticulos from "@/components/admin/TituloAdminArticulos.vue";
 import NavBarAdmin from "@/components/Navbars/NavBarAdmin.vue";
 import TablaAdminArticulos from "@/components/admin/TablaAdminArticulos.vue";
+import ColoresApp from "@/components/esquemaColores/ColoresApp.vue";
 </script>
 <template>
   <NavBarAdmin></NavBarAdmin>
@@ -11,6 +12,7 @@ import TablaAdminArticulos from "@/components/admin/TablaAdminArticulos.vue";
     <div id="containerTabla">
       <TablaAdminArticulos></TablaAdminArticulos>
     </div>
+    <ColoresApp></ColoresApp>
   </main>
 </template>
 <style scoped>

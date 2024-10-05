@@ -7,13 +7,13 @@
 <style scoped>
 #containerTitulo {
   height: 100px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 60px;
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 #space {
   width: 100%;

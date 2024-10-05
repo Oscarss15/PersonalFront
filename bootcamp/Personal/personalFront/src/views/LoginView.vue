@@ -3,10 +3,12 @@ import TitleLogin from "@/components/compLogin/TitleLogin.vue";
 import TitleSecondaryLogin from "@/components/compLogin/TitleSecondaryLogin.vue";
 import Login from "@/components/compLogin/Login.vue";
 import Navbar from "@/components/Navbars/Navbar.vue";
+import ColoresApp from "@/components/esquemaColores/ColoresApp.vue";
 </script>
 
 <template>
   <Navbar></Navbar>
+  <ColoresApp></ColoresApp>
   <main>
     <div id="contTitleLogin">
       <div id="contTitle">

@@ -2,6 +2,7 @@
 import TituloTecnica from "@/components/compTecnica/TItuloTecnica.vue";
 import ArticulosTecnica from "@/components/compTecnica/ArticulosTecnica.vue";
 import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
+import ColoresApp from "@/components/esquemaColores/ColoresApp.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import NavbarLogueado from "@/components/Navbars/NavbarLogueado.vue";
   <main>
     <TituloTecnica></TituloTecnica>
     <ArticulosTecnica></ArticulosTecnica>
+    <ColoresApp></ColoresApp>
   </main>
 </template>
 <style scoped>

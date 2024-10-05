@@ -8,7 +8,7 @@
 h2 {
   font-size: 120px;
   font-weight: bold;
-  color: #2d3b57;
+  color: var(--primary-color);
 }
 #ballPadel {
   width: 120px;

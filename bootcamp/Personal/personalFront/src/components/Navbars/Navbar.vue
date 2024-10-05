@@ -61,11 +61,11 @@ body,
 .titulo {
   margin-left: 20px;
   font-size: 70px;
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 #menu {
   width: 100%;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   height: 120px;
 }
 * {
@@ -84,7 +84,7 @@ body,
   left: 0;
   height: 100%;
   width: 100%;
-  background: #2d3b57;
+  background: var(--primary-color);
   clip-path: circle(25px at calc(100% - 45px) 45px);
   transition: all 0.3s ease-in-out;
   z-index: 1000;
@@ -108,7 +108,6 @@ body,
   transition: all 0.3s ease-in-out;
 }
 .menu-btn:hover {
-  box-shadow: 0 3px 10px #b0fc33;
   animation: girar 4s linear infinite;
 }
 #ballNav {
@@ -128,7 +127,7 @@ body,
 }
 #TitleNav {
   width: 100%;
-  color: #b0fc33;
+  color: var(--secondary-color);
   height: 120px;
   font-size: 50px;
   display: flex;
@@ -136,7 +135,7 @@ body,
   align-items: center;
 }
 #active:checked ~ .menu-btn {
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 #active:checked ~ .menu-btn i:before {
   content: "\f00d";
@@ -152,19 +151,19 @@ body,
 .wrapper ul li {
   margin: 15px 0;
   width: 500px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   cursor: pointer;
   font-size: 40px;
   transition: all 0.5s ease;
   text-decoration: none;
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 
 .wrapper ul li:hover {
-  background-color: #b0fc33;
+  background-color: var(--secondary-color);
   border-radius: 20px;
   width: 100%;
-  color: #2d3b57;
+  color: var(--primary-color);
 }
 
 input[type="checkbox"] {
@@ -202,45 +201,45 @@ input[type="checkbox"] {
   font-size: 40px;
   letter-spacing: 0.1vw;
   margin-left: 20px;
-  color: #b0fc33;
+  color: var(--secondary-color);
   text-shadow: none;
   animation: anim 8s infinite linear;
 }
 @keyframes anim {
   0% {
-    color: #b0fc33;
+    color: var(--secondary-color);
     text-shadow: none;
   }
   18% {
-    color: #b0fc33;
+    color: var(--secondary-color);
     text-shadow: none;
   }
   20% {
-    color: #2d3b57;
+    color: var(--primary-color);
     text-shadow: 0 0 0.5vw white, 0 0 3vw #b0fc33;
   }
   30% {
-    color: #b0fc33;
+    color: var(--secondary-color);
     text-shadow: none;
   }
   35% {
-    color: #2d3b57;
+    color: var(--primary-color);
     text-shadow: 0 0 0.5vw white, 0 0 3vw #b0fc33;
   }
   70% {
-    color: #b0fc33;
+    color: var(--secondary-color);
     text-shadow: none;
   }
   85% {
-    color: #2d3b57;
+    color: var(--primary-color);
     text-shadow: 0 0 0.5vw white, 0 0 3vw #b0fc33;
   }
   90% {
-    color: #b0fc33;
+    color: var(--secondary-color);
     text-shadow: none;
   }
   100% {
-    color: #b0fc33;
+    color: var(--secondary-color);
     text-shadow: none;
   }
 }

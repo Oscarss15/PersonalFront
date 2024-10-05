@@ -6,6 +6,7 @@ import TituloSalas from "@/components/compSalas/TituloSalas.vue";
 import BotonAñadirSala from "@/components/compSalas/BotonAñadirSala.vue";
 import CardSala from "@/components/compSalas/CardSala.vue";
 import BusquedaPorVoz from "@/components/compSalas/BusquedaPorVoz.vue";
+import ColoresApp from "@/components/esquemaColores/ColoresApp.vue";
 
 // Estado para las salas
 const salas = ref([]);
@@ -107,6 +108,7 @@ const filteredSalas = computed(() => {
         No se encontraron salas para la búsqueda.
       </p>
     </div>
+    <ColoresApp></ColoresApp>
   </main>
 </template>
 

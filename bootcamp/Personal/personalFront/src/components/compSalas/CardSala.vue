@@ -137,7 +137,7 @@ main {
   border-top-left-radius: 10px;
   width: 100%;
   height: 60px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,18 +149,18 @@ main {
   height: 40px;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 15px;
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 .containerFecha {
   width: 100%;
   height: 40px;
   border-bottom: 2px solid white;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,7 +199,7 @@ main {
 .contadorPersonas {
   width: 100%;
   height: 60px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-top: 2px solid white;
@@ -228,7 +228,7 @@ main {
 
 .textoAdicional {
   font-size: 15px;
-  color: #b0fc33;
+  color: var(--secondary-color);
   opacity: 0;
   transition: opacity 0.5s ease;
   margin-top: 10px;

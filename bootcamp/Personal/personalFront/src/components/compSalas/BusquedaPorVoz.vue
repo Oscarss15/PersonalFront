@@ -115,7 +115,7 @@ const updateSearchQuery = () => {
   align-items: center;
   justify-content: center;
   width: 90%;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: 3px solid white;
   border-radius: 25px;
 }
@@ -123,7 +123,7 @@ const updateSearchQuery = () => {
 .search-bar {
   padding: 10px;
   width: 100%;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 25px;
   font-size: 20px;
@@ -140,7 +140,7 @@ const updateSearchQuery = () => {
 .voz-button {
   margin-left: 10px;
   padding: 10px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -158,7 +158,7 @@ const updateSearchQuery = () => {
 .voz-buttonPais {
   margin-left: 10px;
   padding: 5px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 25px;
   cursor: pointer;

@@ -410,7 +410,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   width: 90%;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: 3px solid white;
   border-radius: 25px;
 }
@@ -418,7 +418,7 @@ onMounted(() => {
 .search-bar {
   padding: 10px;
   width: 100%;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 25px;
   font-size: 20px;
@@ -435,7 +435,7 @@ onMounted(() => {
 .voz-button {
   margin-left: 10px;
   padding: 10px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -449,7 +449,7 @@ onMounted(() => {
 .voz-buttonPais {
   margin-left: 10px;
   padding: 5px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -475,7 +475,6 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .modal-background {
   position: fixed;
@@ -519,7 +518,7 @@ onMounted(() => {
 .modal-content form button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   cursor: pointer;
@@ -527,12 +526,12 @@ onMounted(() => {
 }
 
 .modal-content button:hover {
-  background-color: #b0fc33;
+  background-color: var(--secondary-color);
   color: #2d3b57;
 }
 
 .cerrar {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 10px;
   height: 40px;
@@ -541,32 +540,32 @@ onMounted(() => {
 }
 .table-responsive {
   width: 90%;
-  box-shadow: 0 0 20px #2d3b57;
+  box-shadow: 0 0 20px var(--primary-color);
   border-radius: 10px;
   overflow-x: auto;
   box-sizing: border-box;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
 }
 
 .custom-table-dark {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: #fff !important;
 }
 
 .custom-table-dark th {
-  background-color: #454d66;
-  color: #b0fc33;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 10px;
 }
 
 .custom-table-dark tr {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .custom-table-dark td {
   padding: 8px;
-  background-color: #3b4969;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -580,7 +579,7 @@ onMounted(() => {
 }
 
 .ver-info {
-  color: #b0fc33;
+  color: var(--secondary-color);
   cursor: pointer;
 }
 
@@ -593,7 +592,7 @@ onMounted(() => {
 }
 
 .table-responsive::-webkit-scrollbar-thumb {
-  background-color: #b0fc33;
+  background-color: var(--secondary-color);
   border-radius: 10px;
 }
 
@@ -635,7 +634,7 @@ onMounted(() => {
 
 .modal-content h2 {
   margin-top: 0;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: white;
   padding: 3px;
   border-radius: 10px;
@@ -654,7 +653,7 @@ onMounted(() => {
 .form-grid label {
   display: block;
   font-weight: bold;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border-radius: 10px;
   color: White;
 }
@@ -678,7 +677,7 @@ onMounted(() => {
 .modal-content form button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   cursor: pointer;
@@ -686,12 +685,12 @@ onMounted(() => {
 }
 
 .modal-content button:hover {
-  background-color: #b0fc33;
+  background-color: var(--secondary-color);
   color: #2d3b57;
 }
 
 .cerrar {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 10px;
   height: 40px;
@@ -710,7 +709,7 @@ table button:hover {
   opacity: 0.7;
 }
 #BloqueTexto {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 10px;
   height: 40px;
@@ -721,13 +720,13 @@ table button:hover {
   width: 85%;
 }
 #btnCerrar {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border-radius: 10px;
 }
 #btnCerrar:hover {
-  background-color: #b0fc33;
+  background-color: var(--secondary-color);
   font-weight: bold;
-  color: #2d3b57;
+  color: var(--primary-color);
   border-color: white;
 }
 #cntbloqueTexto {
@@ -738,7 +737,7 @@ table button:hover {
 .button {
   width: 300px;
   height: 70px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   border-style: none;
   color: #fff;
   font-size: 23px;
@@ -765,7 +764,11 @@ table button:hover {
   width: 200px;
   top: 0px;
   left: -200px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), #b0fc33);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--secondary-color)
+  );
   border-top-right-radius: 1px;
   border-bottom-right-radius: 1px;
   animation: span1 2s linear infinite;
@@ -786,7 +789,11 @@ table button:hover {
   width: 3px;
   top: -70px;
   right: 0px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #b0fc33);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    var(--secondary-color)
+  );
   border-bottom-left-radius: 1px;
   border-bottom-right-radius: 1px;
   animation: span2 2s linear infinite;
@@ -807,7 +814,11 @@ table button:hover {
   width: 200px;
   right: -200px;
   bottom: 0px;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0), #b0fc33);
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0),
+    var(--secondary-color)
+  );
   border-top-left-radius: 1px;
   border-bottom-left-radius: 1px;
   animation: span3 2s linear infinite;
@@ -828,7 +839,7 @@ table button:hover {
   width: 3px;
   bottom: -70px;
   left: 0px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0), #b0fc33);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), var(--secondary-color));
   border-top-right-radius: 1px;
   border-top-left-radius: 1px;
   animation: span4 2s linear infinite;
@@ -848,8 +859,8 @@ table button:hover {
   transition: all 0.5s;
   transform: rotate(-3deg) scale(1.1);
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
-  background-color: #b0fc33;
-  color: #2d3b57;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .button:hover span {
@@ -857,7 +868,7 @@ table button:hover {
 }
 
 h2 {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   height: 40px;
   border-radius: 10px;
   color: white;
@@ -867,7 +878,7 @@ h2 {
   align-items: center;
 }
 label {
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   height: 20px;
   border-radius: 10px;
   color: white;

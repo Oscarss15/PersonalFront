@@ -99,11 +99,11 @@ a:hover {
 }
 
 .link {
-  color: #2d3b57;
+  color: var(--primary-color);
 }
 
 .link:hover {
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 
 p {
@@ -143,7 +143,7 @@ h6 span {
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   z-index: 0;
 }
 
@@ -154,8 +154,8 @@ h6 span {
   width: 36px;
   height: 36px;
   border-radius: 10%;
-  color: #b0fc33;
-  background-color: #2d3b57;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
   content: "";
   z-index: 0;
   font-size: 12px;
@@ -201,7 +201,7 @@ h6 span {
 .card-back {
   width: 100%;
   height: 100%;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   position: absolute;
   border-radius: 0px;
   left: 0;
@@ -248,10 +248,10 @@ h6 span {
   line-height: 22px;
   letter-spacing: 0.5px;
   outline: none;
-  color: #b0fc33;
-  background-color: #2d3b57;
-  border: 1px solid #b0fc33;
-  box-shadow: 0 0 5px #b0fc33;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 0 5px var(--secondary-color);
   transition: all 200ms linear;
 }
 
@@ -263,30 +263,30 @@ h6 span {
   font-size: 24px;
   line-height: 48px;
   text-align: left;
-  color: #b0fc33;
+  color: var(--secondary-color);
   transition: all 200ms linear;
 }
 
 .form-group input:-ms-input-placeholder {
-  color: #b0fc33;
+  color: var(--secondary-color);
   opacity: 0.7;
   transition: all 200ms linear;
 }
 
 .form-group input::-moz-placeholder {
-  color: #b0fc33;
+  color: var(--secondary-color);
   opacity: 0.7;
   transition: all 200ms linear;
 }
 
 .form-group input:-moz-placeholder {
-  color: #b0fc33;
+  color: var(--secondary-color);
   opacity: 0.7;
   transition: all 200ms linear;
 }
 
 .form-group input::-webkit-input-placeholder {
-  color: #b0fc33;
+  color: var(--secondary-color);
   opacity: 0.7;
   transition: all 200ms linear;
 }
@@ -327,23 +327,23 @@ h6 span {
   -ms-flex-pack: center;
   text-align: center;
   border: none;
-  background-color: #b0fc33;
-  color: #2d3b57;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   box-shadow: 0 8px 24px 0 rgba(18, 248, 173, 0.2);
 }
 
 .btn:active,
 .btn:focus {
-  background-color: #b0fc33;
+  background-color: var(--secondary-color);
   color: #2d3b57;
   box-shadow: 0 8px 24px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn:hover {
-  background-color: #2d3b57;
-  color: #b0fc33;
-  border: 1px solid #b0fc33;
-  box-shadow: 0 0 10px #b0fc33;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color);
 }
 
 .logo {
@@ -361,11 +361,11 @@ h6 span {
   display: block;
 }
 h6 {
-  color: #2d3b57;
+  color: var(--primary-color);
   font-size: 20px;
 }
 #text {
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 @media (max-width: 1024px) and (min-width: 481px) {
   #contlogin {

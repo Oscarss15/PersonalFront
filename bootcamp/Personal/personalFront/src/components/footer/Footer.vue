@@ -1,7 +1,10 @@
 <script setup></script>
 
 <template>
-  <footer class="text-center text-lg-start" style="background-color: #2d3b57">
+  <footer
+    class="text-center text-lg-start"
+    style="background-color: var(--primary-color)"
+  >
     <div class="container d-flex justify-content-center py-5">
       <button
         type="button"
@@ -51,7 +54,7 @@
 
 <style scoped>
 footer {
-  box-shadow: 0 -10px 15px #b0fc33;
+  box-shadow: 0 -10px 15px var(--secondary-color);
   z-index: 1000;
   margin-top: 30px;
 }
@@ -60,18 +63,18 @@ button {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: 2px solid #b0fc33;
-  box-shadow: 0 0 5px #b0fc33;
-  background-color: #2d3b57;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 0 5px var(--secondary-color);
+  background-color: var(--primary-color);
   transition: transform 0.3s;
 }
 
 i {
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 
 button:hover i {
-  color: #2d3b57;
+  color: var(--primary-color);
 }
 
 #btnfb:hover,
@@ -79,9 +82,9 @@ button:hover i {
 #btnig:hover,
 #btnws:hover {
   transform: scale(1.1);
-  background-color: #b0fc33;
-  box-shadow: 0 0 15px #b0fc33;
-  border: 2px solid #b0fc33;
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 15px var(--secondary-color);
+  border: 2px solid var(--secondary-color);
 }
 
 #btnws,
@@ -94,12 +97,12 @@ button:hover i {
 
 #divfooter {
   color: white;
-  box-shadow: 0 0 15px #b0fc33;
+  box-shadow: 0 0 15px var(--secondary-color);
 }
 
 .linkProyecto {
   font-size: 18px;
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 
 button,

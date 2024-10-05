@@ -4,7 +4,7 @@
 </template>
 <style scoped>
 h2 {
-  color: #2d3b57;
+  color: var(--primary-color);
 }
 @media (max-width: 1024px) and (min-width: 481px) {
   h2 {

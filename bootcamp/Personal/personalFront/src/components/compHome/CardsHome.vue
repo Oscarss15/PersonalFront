@@ -76,7 +76,7 @@ main {
 }
 
 .imageWrapper:hover {
-  box-shadow: 0 0 10px #2d3b57;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
 .imgTecnica {
@@ -91,7 +91,7 @@ main {
 .overlay {
   position: absolute;
   bottom: 0;
-  background-color: rgba(45, 59, 87, 0.7);
+  background-color: var(--primary-color);
   color: white;
   width: 100%;
   text-align: center;
@@ -103,13 +103,13 @@ main {
 
 .imageWrapper:hover .overlay {
   height: 150px;
-  box-shadow: 0 0 10px #b0fc33;
+  box-shadow: 0 0 10px var(--secondary-color);
 }
 
 .imgTecnica:hover {
   opacity: 1;
   filter: grayscale(0%);
-  box-shadow: 0 0 20px #b0fc33;
+  box-shadow: 0 0 20px var(--secondary-color);
   transform: scale(1.03);
 }
 
@@ -124,7 +124,7 @@ main {
   font-size: 2rem;
   opacity: 0;
   transition: opacity 0.3s ease;
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 
 .imageWrapper:hover .autor-fecha {

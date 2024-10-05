@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import BotonVolverArticulo from "./BotonVolverArticulo.vue";
 import NavbarLogueado from "../Navbars/NavbarLogueado.vue";
+import ColoresApp from "../esquemaColores/ColoresApp.vue";
 
 const route = useRoute();
 const articulo = ref(null);
@@ -86,6 +87,7 @@ onMounted(fetchArticulo);
     <RouterLink class="routerlink" :to="getBackLink()">
       <BotonVolverArticulo />
     </RouterLink>
+    <ColoresApp></ColoresApp>
   </main>
 </template>
 <style scoped>
@@ -107,13 +109,13 @@ main {
 }
 #containerTitulo {
   height: 100px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 60px;
-  color: #b0fc33;
+  color: var(--secondary-color);
 }
 
 #space {
@@ -178,7 +180,7 @@ main {
   width: 90%;
   height: 90%;
   border-radius: 10px;
-  box-shadow: 0 0 20px #2d3b57;
+  box-shadow: 0 0 20px var(--primary-color);
   object-fit: cover;
   transition: 1000ms;
 }
@@ -187,7 +189,7 @@ main {
 .img3:hover {
   opacity: 1;
   filter: grayscale(0%);
-  box-shadow: 0 0 20px #b0fc33;
+  box-shadow: 0 0 20px var(--secondary-color);
   transform: scale(1.03);
 }
 
@@ -200,7 +202,7 @@ main {
 .separador {
   width: 100%;
   height: 15px;
-  background-color: #2d3b57;
+  background-color: var(--primary-color);
 }
 @media (min-width: 481px) and (max-width: 1024px) {
   .contArticulo {
