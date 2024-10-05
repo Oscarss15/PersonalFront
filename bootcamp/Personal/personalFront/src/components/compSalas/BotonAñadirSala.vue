@@ -89,7 +89,7 @@ const submitForm = () => {
   color: #fff;
   font-size: 23px;
   letter-spacing: 3px;
-  font-family: "Lato";
+  font-family: "Black Ops One", system-ui;
   font-weight: 600;
   outline: none;
   cursor: pointer;

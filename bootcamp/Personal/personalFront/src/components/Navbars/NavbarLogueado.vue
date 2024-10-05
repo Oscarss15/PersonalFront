@@ -38,7 +38,7 @@ function closeMenu() {
 
   <div class="wrapper">
     <ul>
-      <RouterLink to="/" class="routerlink"
+      <RouterLink to="/home" class="routerlink"
         ><li @click="closeMenu">Home</li></RouterLink
       >
       <RouterLink to="/tecnica" class="routerlink"
@@ -75,8 +75,7 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
-  font-family: "Oswald", sans-serif;
+  font-family: "Black Ops One", system-ui;
 }
 
 .routerlink {

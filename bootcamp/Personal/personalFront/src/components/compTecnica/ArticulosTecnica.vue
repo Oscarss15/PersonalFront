@@ -148,6 +148,9 @@ main {
   .containerArticulo {
     padding: 20px;
   }
+  .titulo {
+    font-size: 10px;
+  }
 }
 
 @media (min-width: 1025px) {

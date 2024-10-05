@@ -21,6 +21,7 @@ main {
 }
 body {
   cursor: url("./assets/img/cursor/cursorPadel.cur"), auto;
+  font-family: "Black Ops One", system-ui;
 }
 
 img,

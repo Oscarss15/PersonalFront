@@ -29,7 +29,7 @@ const getImageSrc = (imagen) => {
 };
 // Función para determinar la ruta de regreso
 const getBackLink = () => {
-  return articulo.value?.tipo === "tecnica" ? "/tecnica" : "/psicologia";
+  return articulo.value?.tipo === "técnica" ? "/tecnica" : "/psicologia";
 };
 
 onMounted(fetchArticulo);
@@ -251,6 +251,10 @@ main {
     width: 90%;
     font-size: 14px;
     padding: 15px;
+  }
+  .titulo {
+    font-size: 15px;
+    text-align: center;
   }
 }
 </style>

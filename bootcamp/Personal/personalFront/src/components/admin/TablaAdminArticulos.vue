@@ -475,6 +475,7 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .modal-background {
   position: fixed;
@@ -735,14 +736,14 @@ table button:hover {
   align-items: center;
 }
 .button {
-  width: 250px;
+  width: 300px;
   height: 70px;
   background-color: #2d3b57;
   border-style: none;
   color: #fff;
   font-size: 23px;
   letter-spacing: 3px;
-  font-family: "Lato";
+  font-family: "Black Ops One", system-ui;
   font-weight: 600;
   outline: none;
   cursor: pointer;

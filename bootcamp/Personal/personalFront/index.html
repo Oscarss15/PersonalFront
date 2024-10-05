@@ -24,7 +24,16 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
     />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap"
+      rel="stylesheet"
+    />
     <!-- jQuery and Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -141,10 +150,10 @@
         loadingElement.classList.remove("hide");
 
         // Duración de la pantalla de carga (en ms)
-        const loadingDuration = 3000; // Cambia esto si necesitas ajustar el tiempo total de carga
+        const loadingDuration = 1500; // Cambia esto si necesitas ajustar el tiempo total de carga
 
         // Duración de cada texto (en ms)
-        const textDuration = loadingDuration / 6; // Total de 3 textos, aproximadamente 533 ms cada uno
+        const textDuration = 500; // Total de 3 textos, aproximadamente 533 ms cada uno
 
         // Iniciar el ciclo de textos de carga
         showLoadingTexts(textDuration);
