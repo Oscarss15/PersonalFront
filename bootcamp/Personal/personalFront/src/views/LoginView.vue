@@ -77,13 +77,20 @@ main {
   }
   #contTitleLogin {
     width: 100%;
-    height: 350px;
+    height: 400px;
     margin-bottom: 100px;
   }
   #containerLogin {
     margin-top: 100px;
     width: 100%;
     height: 100px;
+  }
+  #contTextPrincipal {
+    height: 100px;
+  }
+
+  #contTextSecondary {
+    height: 200px;
   }
 }
 @media (max-width: 480px) {

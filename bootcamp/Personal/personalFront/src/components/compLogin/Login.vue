@@ -4,7 +4,7 @@
   <div class="row full-height justify-content-center" id="contlogin">
     <div class="col-12 text-center align-self-center py-5">
       <div class="section pb-5 pt-5 pt-sm-2 text-center">
-        <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+        <h6 class="mb-0 pb-3"><span>Log In </span><span>Registro</span></h6>
         <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
         <label for="reg-log"></label>
         <div class="card-3d-wrap mx-auto">
@@ -18,7 +18,7 @@
                       type="email"
                       name="logemail"
                       class="form-style"
-                      placeholder="Your Email"
+                      placeholder="Tu Email"
                       id="logemail"
                       autocomplete="none"
                     />
@@ -29,7 +29,7 @@
                       type="password"
                       name="logpass"
                       class="form-style"
-                      placeholder="Your Password"
+                      placeholder="Tu Contraseña"
                       id="logpass"
                       autocomplete="none"
                     />
@@ -42,13 +42,13 @@
             <div class="card-back">
               <div class="center-wrap">
                 <div class="section text-center">
-                  <h4 class="mb-4 pb-3" id="text">Sign Up</h4>
+                  <h4 class="mb-4 pb-3" id="text">Registro</h4>
                   <div class="form-group">
                     <input
                       type="text"
                       name="logname"
                       class="form-style"
-                      placeholder="Your Full Name"
+                      placeholder="Tu Nombre Completo"
                       id="logname"
                       autocomplete="none"
                     />
@@ -59,7 +59,7 @@
                       type="email"
                       name="logemail"
                       class="form-style"
-                      placeholder="Your Email"
+                      placeholder="Tu Email"
                       id="logemail"
                       autocomplete="none"
                     />
@@ -70,13 +70,13 @@
                       type="password"
                       name="logpass"
                       class="form-style"
-                      placeholder="Your Password"
+                      placeholder="Tu contraseña"
                       id="logpass"
                       autocomplete="none"
                     />
                     <i class="input-icon fa fa-lock"></i>
                   </div>
-                  <a href="#" class="btn mt-4">Signup</a>
+                  <a href="#" class="btn mt-4">Registro</a>
                 </div>
               </div>
             </div>
@@ -368,10 +368,17 @@ h6 {
   color: #b0fc33;
 }
 @media (max-width: 1024px) and (min-width: 481px) {
+  #contlogin {
+    width: 100%;
+    margin-top: 200px;
+  }
 }
 @media (max-width: 480px) {
   #contlogin {
     width: 85%;
+  }
+  input::placeholder {
+    font-size: 10px;
   }
 }
 </style>
