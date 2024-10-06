@@ -56,6 +56,11 @@ const router = createRouter({
       component: () => import("../components/compArticulo/CuerpoArticulo.vue"),
       props: true, // Permitir pasar el ID como prop
     },
+    {
+      path: "/sala",
+      name: "sala",
+      component: () => import("../views/SalaView.vue"),
+    },
   ],
 });
 

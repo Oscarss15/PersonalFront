@@ -96,12 +96,13 @@ const filteredSalas = computed(() => {
       <BusquedaPorVoz v-model:searchQuery="searchQuery" />
     </div>
 
-    <CardSala
-      class="cardSala"
-      v-for="sala in filteredSalas"
-      :key="sala.id"
-      :sala="sala"
-    />
+    <RouterLink to="sala"
+      ><CardSala
+        class="cardSala"
+        v-for="sala in filteredSalas"
+        :key="sala.id"
+        :sala="sala"
+    /></RouterLink>
 
     <div class="mostrarInfo">
       <p v-if="filteredSalas.length === 0" class="no-results-message">
