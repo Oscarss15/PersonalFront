@@ -28,14 +28,14 @@ export default {
           alt="Bola Azul"
         />
       </button>
-      <button @click="setPrimaryColor('#b23838')">
+      <button @click="setPrimaryColor('#272727')">
         <img
           class="bola"
-          src="/src/assets/img/navbar/bolaRoja.png"
+          src="/src/assets/img/navbar/bolaNegra.png"
           alt="Bola Roja"
         />
       </button>
-      <button @click="setPrimaryColor('#49b07f')">
+      <button @click="setPrimaryColor('#2f5641')">
         <img
           class="bola"
           src="/src/assets/img/navbar/bolaVerde.png"
