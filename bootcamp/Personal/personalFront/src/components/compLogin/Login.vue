@@ -1,4 +1,43 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+// Definimos el router
+const router = useRouter();
+
+// Creamos referencias para los campos de email y contraseña
+const email = ref("");
+const password = ref("");
+
+// Creamos una referencia para mostrar el modal de error
+const showModal = ref(false);
+const errorMessage = ref(""); // Mensaje de error para el modal
+
+// Función para manejar el login
+const handleLogin = () => {
+  // Si el email es "admin" y la contraseña es "password_123"
+  if (email.value === "admin" && password.value === "password_123") {
+    // Redirigimos a la vista /adminArticulos
+    router.push("/adminArticulos");
+  }
+  // Si el email es "user" y la contraseña es "password_123"
+  else if (email.value === "user" && password.value === "password_123") {
+    // Redirigimos a la vista /home
+    router.push("/home");
+  }
+  // Si las credenciales no coinciden con ninguna de las anteriores
+  else {
+    // Mostramos el modal de error
+    errorMessage.value = "Credenciales incorrectas";
+    showModal.value = true;
+  }
+};
+
+// Función para cerrar el modal
+const closeModal = () => {
+  showModal.value = false;
+};
+</script>
 
 <template>
   <div class="row full-height justify-content-center" id="contlogin">
@@ -16,7 +55,7 @@
                   <div class="form-group">
                     <input
                       type="email"
-                      name="logemail"
+                      v-model="email"
                       class="form-style"
                       placeholder="Tu Email"
                       id="logemail"
@@ -27,7 +66,7 @@
                   <div class="form-group mt-2">
                     <input
                       type="password"
-                      name="logpass"
+                      v-model="password"
                       class="form-style"
                       placeholder="Tu Contraseña"
                       id="logpass"
@@ -35,7 +74,7 @@
                     />
                     <i class="input-icon fa fa-lock"></i>
                   </div>
-                  <a href="#" class="btn mt-4">Login</a>
+                  <a @click="handleLogin" class="btn mt-4">Login</a>
                 </div>
               </div>
             </div>
@@ -85,7 +124,17 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal de error -->
+  <div v-if="showModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3>Error</h3>
+      <p>{{ errorMessage }}</p>
+      <button @click="closeModal" class="modal-close-btn">Cerrar</button>
+    </div>
+  </div>
 </template>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
 
@@ -366,6 +415,42 @@ h6 {
 }
 #text {
   color: var(--secondary-color);
+}
+.modal-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 50%;
+}
+
+.modal-close-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 @media (max-width: 1024px) and (min-width: 481px) {
   #contlogin {

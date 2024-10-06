@@ -53,6 +53,9 @@ function closeMenu() {
       <RouterLink to="/adminArticulos" class="routerlink"
         ><li @click="closeMenu">Admin</li></RouterLink
       >
+      <RouterLink to="/" class="routerlink"
+        ><li @click="closeMenu">Log Out</li></RouterLink
+      >
     </ul>
   </div>
 </template>

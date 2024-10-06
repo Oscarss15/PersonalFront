@@ -50,6 +50,9 @@ function closeMenu() {
       <RouterLink to="/salas" class="routerlink"
         ><li @click="closeMenu">Salas</li></RouterLink
       >
+      <RouterLink to="/" class="routerlink"
+        ><li @click="closeMenu">Log Out</li></RouterLink
+      >
     </ul>
   </div>
 </template>
