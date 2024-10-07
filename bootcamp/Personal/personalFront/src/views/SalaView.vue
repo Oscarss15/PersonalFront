@@ -86,7 +86,7 @@ main {
 
 @media (min-width: 481px) and (max-width: 1024px) {
   main {
-    min-height: 400px;
+    min-height: 950px;
   }
 }
 @media (max-width: 480px) {

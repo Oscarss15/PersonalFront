@@ -75,7 +75,7 @@ main {
 }
 @media (max-width: 1024px) and (min-width: 481px) {
   main {
-    min-height: 1150px;
+    min-height: 1250px;
   }
   #contTitleLogin {
     width: 100%;
