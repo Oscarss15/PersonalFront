@@ -1,13 +1,10 @@
 <script setup>
 import { ref, defineEmits } from "vue";
 
-// Definir la emisión de eventos
 const emit = defineEmits(["sala-added"]);
 
-// Mostrar u ocultar el modal
 const showModal = ref(false);
 
-// Datos del formulario
 const formData = ref({
   ciudad: "",
   lugar: "",
@@ -15,7 +12,6 @@ const formData = ref({
   hora: "",
 });
 
-// Función para abrir y cerrar el modal
 const openModal = () => {
   showModal.value = true;
 };
@@ -24,12 +20,10 @@ const closeModal = () => {
   showModal.value = false;
 };
 
-// Función para manejar el envío del formulario
 const submitForm = () => {
-  // Emitimos el evento pasando los datos de la nueva sala
   const newSala = { ...formData.value };
-  emit("sala-added", newSala); // Emitimos el evento hacia el componente padre
-  closeModal(); // Cerramos el modal tras enviar el formulario
+  emit("sala-added", newSala);
+  closeModal();
 };
 </script>
 <template>

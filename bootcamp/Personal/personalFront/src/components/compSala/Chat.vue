@@ -41,9 +41,9 @@
 export default {
   data() {
     return {
-      username: "User" + Math.floor(Math.random() * 1000), // Genera un nombre de usuario aleatorio
+      username: "User" + Math.floor(Math.random() * 1000),
       newMessage: "",
-      messages: [], // Aquí se guardarán los mensajes
+      messages: [],
     };
   },
   methods: {
@@ -54,9 +54,8 @@ export default {
           text: this.newMessage,
         };
         this.messages.push(message);
-        this.newMessage = ""; // Limpia el campo de entrada
+        this.newMessage = "";
 
-        // Scroll automático al final del chat
         this.$nextTick(() => {
           const messagesContainer = this.$el.querySelector(".messages");
           messagesContainer.scrollTop = messagesContainer.scrollHeight;

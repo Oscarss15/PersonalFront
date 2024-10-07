@@ -22,15 +22,15 @@ const getImageSrc = (imagen) => {
   if (imagen) {
     return `http://localhost:8080/upload/${imagen}`;
   }
-  return "../assets/img/tecnica/tecnica1.jpg"; // imagen por defecto
+  return "../assets/img/tecnica/tecnica1.jpg";
 };
 
 const formatDate = (fechaArray) => {
   if (Array.isArray(fechaArray) && fechaArray.length === 3) {
     const [year, month, day] = fechaArray;
-    return `${day}/${month}/${year}`; // Cambia el formato según tus necesidades
+    return `${day}/${month}/${year}`;
   }
-  return ""; // Retorna un string vacío si la fecha no es válida
+  return "";
 };
 
 onMounted(fetchArticulos);
@@ -67,12 +67,12 @@ main {
   display: grid;
   gap: 10px;
   align-items: start;
-  grid-template-columns: repeat(3, 1fr); /* Asegura 3 columnas por defecto */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .containerArticulo {
   padding: 5px;
-  width: 100%; /* Asegura que ocupe el 100% del contenedor */
+  width: 100%;
 }
 
 .imageWrapper {

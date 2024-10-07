@@ -8,7 +8,6 @@ export default {
       );
     },
     setSecondaryColor(secondaryColor) {
-      // Corregir el nombre de la variable aquí
       document.documentElement.style.setProperty(
         "--secondary-color",
         secondaryColor

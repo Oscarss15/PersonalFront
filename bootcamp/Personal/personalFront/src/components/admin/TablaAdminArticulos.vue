@@ -1,14 +1,11 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 
-// Estado de los artículos
 const articulos = ref([]);
 
-// Estado del query de búsqueda
 const searchQuery = ref("");
 
-// Variables para el reconocimiento de voz
-const recognitionLang = ref("es-ES"); // Idioma predeterminado
+const recognitionLang = ref("es-ES");
 const isRecognizing = ref(false);
 const placeholders = {
   "es-ES": "Buscar por título, autor, tipo o utiliza el micrófono",
@@ -16,7 +13,6 @@ const placeholders = {
 };
 const placeholderText = ref(placeholders[recognitionLang.value]);
 
-// Función para iniciar el reconocimiento de voz
 const startRecognition = () => {
   if (!("webkitSpeechRecognition" in window)) {
     alert(
@@ -47,7 +43,6 @@ const startRecognition = () => {
   };
 };
 
-// Funciones para cambiar el idioma y actualizar el placeholder
 const setLanguageToSpanish = () => {
   recognitionLang.value = "es-ES";
   placeholderText.value = placeholders["es-ES"];
@@ -60,7 +55,6 @@ const setLanguageToEnglish = () => {
   startRecognition();
 };
 
-// Filtrar artículos basado en la búsqueda
 const filteredArticulos = computed(() => {
   return articulos.value.filter((articulo) => {
     const query = searchQuery.value.toLowerCase();
@@ -73,10 +67,9 @@ const filteredArticulos = computed(() => {
   });
 });
 
-// Estado del modal de información
 const showModal = ref(false);
 const modalContent = ref("");
-// Funciones para abrir y cerrar el modal de información
+
 const openModal = (texto) => {
   modalContent.value = texto;
   showModal.value = true;
@@ -106,7 +99,7 @@ const openEditModal = () => {
 
 const closeEditModal = () => {
   showEditModal.value = false;
-  // Resetear el modelo del nuevo artículo
+
   nuevoArticulo.value = {
     titulo: "",
     autor: "",
@@ -120,7 +113,7 @@ const closeEditModal = () => {
     imagen3: null,
   };
 };
-// Función para añadir un nuevo artículo
+
 const addArticulo = async () => {
   const formData = new FormData();
   formData.append("titulo", nuevoArticulo.value.titulo);
@@ -153,9 +146,9 @@ const addArticulo = async () => {
     if (response.ok) {
       const data = await response.json();
       console.log("Artículo añadido:", data);
-      // Llamar a la función para recargar los artículos
-      await fetchArticulos(); // Recargar los artículos
-      closeEditModal(); // Cerrar el modal
+
+      await fetchArticulos();
+      closeEditModal();
     } else {
       console.error("Error al añadir el artículo:", response.statusText);
     }
@@ -164,7 +157,6 @@ const addArticulo = async () => {
   }
 };
 
-// Función para obtener los artículos desde la API
 const fetchArticulos = async () => {
   try {
     const response = await fetch(
@@ -180,7 +172,6 @@ const fetchArticulos = async () => {
   }
 };
 
-// Función para eliminar un artículo
 const deleteArticulo = async (id) => {
   try {
     await fetch(`http://localhost:8080/api/v1/articulos/${id}`, {
@@ -192,7 +183,6 @@ const deleteArticulo = async (id) => {
   }
 };
 
-// Cargar los artículos al montar el componente
 onMounted(() => {
   fetchArticulos();
 });
@@ -200,8 +190,6 @@ onMounted(() => {
 
 <template>
   <div id="containerAñadirArticulo">
-    <!-- Botón para abrir el modal de añadir artículo -->
-
     <button class="button" @click="openEditModal()">
       Añadir Artículo
       <span></span>
@@ -209,7 +197,7 @@ onMounted(() => {
       <span></span>
       <span></span>
     </button>
-    <!-- Modal para agregar un artículo -->
+
     <div
       v-if="showEditModal"
       class="modal-background"
@@ -301,7 +289,6 @@ onMounted(() => {
   </div>
 
   <div id="containerBusqueda">
-    <!-- Buscador de texto y voz -->
     <div class="buscador-combinado">
       <input
         type="text"
@@ -387,7 +374,6 @@ onMounted(() => {
     </div>
   </div>
 
-  <!-- Modal para mostrar información adicional -->
   <div v-if="showModal" class="modal-background" @click.self="closeModal">
     <div class="modal-content" @click.stop>
       <h2>Información</h2>
@@ -428,8 +414,8 @@ onMounted(() => {
   color: #c1c1c1;
 }
 .search-bar:focus {
-  outline: none; /* Elimina el contorno cuando está enfocado */
-  box-shadow: none; /* Elimina cualquier sombra si existe */
+  outline: none;
+  box-shadow: none;
 }
 
 .voz-button {
@@ -461,7 +447,7 @@ onMounted(() => {
   background-color: white;
 }
 .voz-button.active {
-  background-color: white; /* Indicador visual cuando el reconocimiento está activo */
+  background-color: white;
 }
 #containerAñadirArticulo {
   width: 100%;

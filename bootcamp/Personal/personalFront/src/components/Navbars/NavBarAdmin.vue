@@ -13,7 +13,6 @@ function closeMenu() {
 <template>
   <div id="menu">
     <div id="containerLogo">
-      <!-- <h1 class="titulo">PM</h1> -->
       <ul class="ul">
         <li class="li">P</li>
         <li class="li" id="letras">a</li>

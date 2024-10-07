@@ -8,19 +8,16 @@ import CardSala from "@/components/compSalas/CardSala.vue";
 import BusquedaPorVoz from "@/components/compSalas/BusquedaPorVoz.vue";
 import ColoresApp from "@/components/esquemaColores/ColoresApp.vue";
 
-// Estado para las salas
 const salas = ref([]);
 
-// Estado para la búsqueda
 const searchQuery = ref("");
 
-// Función para obtener todas las salas desde la API
 const fetchSalas = async () => {
   try {
     const response = await fetch("http://localhost:8080/api/v1/salas/allsalas");
     if (response.ok) {
       const data = await response.json();
-      salas.value = data; // Actualizamos la lista de salas con la respuesta de la API
+      salas.value = data;
     } else {
       console.error("Error fetching salas:", response.statusText);
     }
@@ -29,12 +26,10 @@ const fetchSalas = async () => {
   }
 };
 
-// Llamar a la API para obtener las salas cuando el componente se monta
 onMounted(() => {
   fetchSalas();
 });
 
-// Función para añadir una nueva sala
 const addSala = async (newSala) => {
   try {
     const response = await fetch("http://localhost:8080/api/v1/salas/create", {
@@ -42,12 +37,12 @@ const addSala = async (newSala) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newSala), // Convertir el objeto newSala a JSON
+      body: JSON.stringify(newSala),
     });
 
     if (response.ok) {
       const data = await response.json();
-      salas.value.push(data); // Añadimos la nueva sala a la lista
+      salas.value.push(data);
     } else {
       console.error("Error adding sala:", response.statusText);
     }
@@ -56,16 +51,14 @@ const addSala = async (newSala) => {
   }
 };
 
-// Función para formatear la fecha de la sala para el filtro
 const formatDateForFilter = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
-// Computed property para filtrar las salas según el texto de búsqueda
 const filteredSalas = computed(() => {
   if (!searchQuery.value) {
-    return salas.value; // Si no hay búsqueda, mostramos todas las salas
+    return salas.value;
   }
 
   return salas.value.filter((sala) => {
@@ -96,7 +89,7 @@ const filteredSalas = computed(() => {
       <BusquedaPorVoz v-model:searchQuery="searchQuery" />
     </div>
 
-    <RouterLink to="sala"
+    <RouterLink class="decoration" to="sala"
       ><CardSala
         class="cardSala"
         v-for="sala in filteredSalas"
@@ -130,6 +123,9 @@ main.no-results {
   align-items: center;
   font-size: 50px;
   color: #2d3b57;
+}
+.decoration {
+  text-decoration: none;
 }
 
 .busqueda {

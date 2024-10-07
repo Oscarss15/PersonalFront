@@ -1,7 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
 
-// Definir las propiedades que recibe el componente
 const props = defineProps({
   sala: {
     type: Object,
@@ -9,37 +8,30 @@ const props = defineProps({
   },
 });
 
-// Función para formatear la fecha
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
-// Función para formatear la hora
 const formatTime = (timeArray) => {
   const [hours, minutes] = timeArray;
-  // Asegurarse de que los valores sean siempre de dos dígitos
+
   const formattedHours = String(hours).padStart(2, "0");
   const formattedMinutes = String(minutes).padStart(2, "0");
   return `${formattedHours}:${formattedMinutes}`;
 };
 
-// Función para verificar si la fecha de la sala es anterior a la fecha actual
 const isDateInPast = (dateString) => {
-  const today = new Date(); // Obtener la fecha actual
-  const salaDate = new Date(dateString); // Convertir la fecha de la sala a un objeto de fecha
-  return salaDate < today; // Devolver true si la fecha de la sala es anterior a la fecha actual
+  const today = new Date();
+  const salaDate = new Date(dateString);
+  return salaDate < today;
 };
 
-// Función para manejar la visualización de detalles (puedes implementarla según tus necesidades)
 const viewDetails = (id) => {
-  // Lógica para ver detalles de la sala
   console.log("Ver detalles de la sala con ID:", id);
-  // Aquí puedes redirigir a otra página o abrir un modal con más información
 };
 </script>
 <template>
-  <!-- Renderizar la card solo si la fecha de la sala no es anterior a la actual -->
   <main v-if="!isDateInPast(sala.fecha)">
     <div class="containerCard">
       <div class="containerCiudad">{{ sala.ciudad }}</div>
@@ -130,6 +122,9 @@ main {
 
   transition: 1s;
   position: relative;
+}
+.containerCard:hover {
+  box-shadow: 0 0px 10px 20px var(--secondary-color);
 }
 
 .containerCiudad {

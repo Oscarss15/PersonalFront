@@ -30,11 +30,7 @@ const router = createRouter({
       name: "salas",
       component: () => import("../views/SalasView.vue"),
     },
-    {
-      path: "/foro",
-      name: "foro",
-      component: () => import("../views/ForoView.vue"),
-    },
+
     {
       path: "/login",
       name: "login",
@@ -51,10 +47,10 @@ const router = createRouter({
       component: () => import("../views/AdminArticulosView.vue"),
     },
     {
-      path: "/articulos/:id", // Ruta para CuerpoArticulo
+      path: "/articulos/:id",
       name: "cuerpoArticulo",
       component: () => import("../components/compArticulo/CuerpoArticulo.vue"),
-      props: true, // Permitir pasar el ID como prop
+      props: true,
     },
     {
       path: "/sala",

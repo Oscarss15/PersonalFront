@@ -3,17 +3,15 @@ import { ref, defineEmits } from "vue";
 
 const searchQuery = ref("");
 const emit = defineEmits(["update:searchQuery"]);
-const recognitionLang = ref("es-ES"); // Estado reactivo para el idioma
-const isRecognizing = ref(false); // Estado reactivo para saber si el reconocimiento está activo
+const recognitionLang = ref("es-ES");
+const isRecognizing = ref(false);
 
-// Variables para los placeholders
 const placeholders = {
   "es-ES": "Buscar sala por ciudad, lugar, fecha o utiliza el microfono",
   "fr-FR": "Chercher une salle par ville, lieu, date ou utilisez le microphone",
   "en-US": "Search for a room by city, place, date, or use the microphone",
 };
 
-// Placeholder reactivo
 const placeholderText = ref(placeholders[recognitionLang.value]);
 
 const startRecognition = () => {
@@ -25,17 +23,17 @@ const startRecognition = () => {
   }
 
   const recognition = new webkitSpeechRecognition();
-  recognition.lang = recognitionLang.value; // Usar el idioma seleccionado
+  recognition.lang = recognitionLang.value;
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  isRecognizing.value = true; // Cambiar el estado a verdadero al iniciar el reconocimiento
+  isRecognizing.value = true;
   recognition.start();
 
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
-    searchQuery.value = transcript; // Actualiza el modelo con el texto reconocido
-    emit("update:searchQuery", searchQuery.value); // Emitimos el nuevo valor para actualizar el modelo en el padre
+    searchQuery.value = transcript;
+    emit("update:searchQuery", searchQuery.value);
   };
 
   recognition.onerror = (event) => {
@@ -44,30 +42,28 @@ const startRecognition = () => {
 
   recognition.onend = () => {
     console.log("Reconocimiento de voz terminado.");
-    isRecognizing.value = false; // Cambiar el estado a falso cuando el reconocimiento termine
+    isRecognizing.value = false;
   };
 };
 
-// Funciones para cambiar el idioma y comenzar el reconocimiento
 const setLanguageToSpanish = () => {
-  recognitionLang.value = "es-ES"; // Cambia el idioma a español
-  placeholderText.value = placeholders["es-ES"]; // Cambia el placeholder
-  startRecognition(); // Inicia el reconocimiento de voz en español
+  recognitionLang.value = "es-ES";
+  placeholderText.value = placeholders["es-ES"];
+  startRecognition();
 };
 
 const setLanguageToFrench = () => {
-  recognitionLang.value = "fr-FR"; // Cambia el idioma a francés
-  placeholderText.value = placeholders["fr-FR"]; // Cambia el placeholder
-  startRecognition(); // Inicia el reconocimiento de voz en francés
+  recognitionLang.value = "fr-FR";
+  placeholderText.value = placeholders["fr-FR"];
+  startRecognition();
 };
 
 const setLanguageToEnglish = () => {
-  recognitionLang.value = "en-US"; // Cambia el idioma a inglés
-  placeholderText.value = placeholders["en-US"]; // Cambia el placeholder
-  startRecognition(); // Inicia el reconocimiento de voz en inglés
+  recognitionLang.value = "en-US";
+  placeholderText.value = placeholders["en-US"];
+  startRecognition();
 };
 
-// Función para emitir el valor actualizado de searchQuery
 const updateSearchQuery = () => {
   emit("update:searchQuery", searchQuery.value);
 };
@@ -104,7 +100,6 @@ const updateSearchQuery = () => {
       />
     </button>
 
-    <!-- El botón de micrófono ya no activa el reconocimiento de voz -->
     <button class="voz-button" :class="{ active: isRecognizing }">🎙️</button>
   </div>
 </template>
@@ -133,8 +128,8 @@ const updateSearchQuery = () => {
   color: #c1c1c1;
 }
 .search-bar:focus {
-  outline: none; /* Elimina el contorno cuando está enfocado */
-  box-shadow: none; /* Elimina cualquier sombra si existe */
+  outline: none;
+  box-shadow: none;
 }
 
 .voz-button {

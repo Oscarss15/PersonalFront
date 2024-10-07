@@ -2,38 +2,25 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-// Definimos el router
 const router = useRouter();
 
-// Creamos referencias para los campos de email y contraseña
 const email = ref("");
 const password = ref("");
 
-// Creamos una referencia para mostrar el modal de error
 const showModal = ref(false);
-const errorMessage = ref(""); // Mensaje de error para el modal
+const errorMessage = ref("");
 
-// Función para manejar el login
 const handleLogin = () => {
-  // Si el email es "admin" y la contraseña es "password_123"
   if (email.value === "admin" && password.value === "password_123") {
-    // Redirigimos a la vista /adminArticulos
     router.push("/adminArticulos");
-  }
-  // Si el email es "user" y la contraseña es "password_123"
-  else if (email.value === "user" && password.value === "password_123") {
-    // Redirigimos a la vista /home
+  } else if (email.value === "user" && password.value === "password_123") {
     router.push("/home");
-  }
-  // Si las credenciales no coinciden con ninguna de las anteriores
-  else {
-    // Mostramos el modal de error
+  } else {
     errorMessage.value = "Credenciales incorrectas";
     showModal.value = true;
   }
 };
 
-// Función para cerrar el modal
 const closeModal = () => {
   showModal.value = false;
 };
@@ -125,7 +112,6 @@ const closeModal = () => {
     </div>
   </div>
 
-  <!-- Modal de error -->
   <div v-if="showModal" class="modal-overlay">
     <div class="modal-content">
       <h3>Error</h3>

@@ -26,9 +26,9 @@ const getImageSrc = (imagen) => {
   if (imagen) {
     return `http://localhost:8080/upload/${imagen}`;
   }
-  return "../assets/img/tecnica/tecnica1.jpg"; // imagen por defecto
+  return "../assets/img/tecnica/tecnica1.jpg";
 };
-// Función para determinar la ruta de regreso
+
 const getBackLink = () => {
   return articulo.value?.tipo === "técnica" ? "/tecnica" : "/psicologia";
 };
